@@ -1,4 +1,4 @@
-package com.example.android.apis;
+package com.arpitonline.worldclock;
 
 import java.io.IOException;
 
@@ -18,6 +18,9 @@ import com.aetrion.flickr.photos.PhotoList;
 import com.aetrion.flickr.photos.PhotosInterface;
 import com.aetrion.flickr.photos.SearchParameters;
 import com.arpitonline.utils.ImageUtils;
+import com.example.android.apis.R;
+import com.example.android.apis.R.id;
+import com.example.android.apis.R.layout;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

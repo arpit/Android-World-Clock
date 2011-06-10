@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.example.android.apis.WorldClock;
+import com.arpitonline.worldclock.WorldClock;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

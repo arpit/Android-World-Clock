@@ -1,0 +1,104 @@
+7,"AUS Central Standard Time","(GMT+09:30) Darwin",-570,"AUS Central Standard Time",0,,0,,0,0,00:00:00,"AUS Central Daylight Time",-60,,0,,0,0,00:00:00
+8,"AUS Eastern Standard Time","(GMT+10:00) Canberra, Melbourne, Sydney",-600,"AUS Eastern Standard Time",0,,3,,0,5,03:00:00,"AUS Eastern Daylight Time",-60,,10,,0,5,02:00:00
+1,"Afghanistan Standard Time","(GMT+04:30) Kabul",-270,"Afghanistan Standard Time",0,,0,,0,0,00:00:00,"Afghanistan Daylight Time",-60,,0,,0,0,00:00:00
+2,"Alaskan Standard Time","(GMT-09:00) Alaska",540,"Alaskan Standard Time",0,,10,,0,5,02:00:00,"Alaskan Daylight Time",-60,,4,,0,1,02:00:00
+3,"Arab Standard Time","(GMT+03:00) Kuwait, Riyadh",-180,"Arab Standard Time",0,,0,,0,0,00:00:00,"Arab Daylight Time",-60,,0,,0,0,00:00:00
+4,"Arabian Standard Time","(GMT+04:00) Abu Dhabi, Muscat",-240,"Arabian Standard Time",0,,0,,0,0,00:00:00,"Arabian Daylight Time",-60,,0,,0,0,00:00:00
+5,"Arabic Standard Time","(GMT+03:00) Baghdad",-180,"Arabic Standard Time",0,,0,,0,0,00:00:00,"Arabic Daylight Time",0,,0,,0,0,00:00:00
+120,"Argentina - San Luis Standard Time","(GMT-03:00) San Luis, Argentina",180,"San Luis Standard Time",0,,0,,0,0,00:00:00,"San Luis Daylight Time",-60,,0,,0,0,00:00:00
+116,"Argentina Standard Time","(GMT-03:00) Argentina",180,"Argentina Standard Time",0,,,,,,00:00:00,"Argentina Daylight Time",0,,,,,,00:00:00
+6,"Atlantic Standard Time","(GMT-04:00) Atlantic Time (Canada)",240,"Atlantic Standard Time",0,,10,,0,5,02:00:00,"Atlantic Daylight Time",-60,,4,,0,1,02:00:00
+9,"Azores Standard Time","(GMT-01:00) Azores",60,"Azores Standard Time",0,,10,,0,5,03:00:00,"Azores Daylight Time",-60,,3,,0,5,02:00:00
+107,"Baku Standard Time","(GMT+04:00) Baku",-240,"Baku Standard Time",0,,10,,0,5,05:00:00,"Baku Daylight Time",-60,,3,,0,5,04:00:00
+121,"Bangladesh Standard Time","(GMT+06:00) Bangladesh",-360,"Bangladesh Standard Time",0,,0,,0,0,00:00:00,"Bangladesh Daylight Time",0,,0,,0,0,00:00:00
+10,"Canada Central Standard Time","(GMT-06:00) Saskatchewan",360,"Canada Central Standard Time",0,,0,,0,0,00:00:00,"Canada Central Daylight Time",-60,,0,,0,0,00:00:00
+11,"Cape Verde Standard Time","(GMT-01:00) Cape Verde Is.",60,"Cape Verde Standard Time",0,,0,,0,0,00:00:00,"Cape Verde Daylight Time",-60,,0,,0,0,00:00:00
+12,"Caucasus Standard Time","(GMT+04:00) Yerevan",-240,"Caucasus Standard Time",0,,10,,0,5,03:00:00,"Caucasus Daylight Time",-60,,3,,0,5,02:00:00
+13,"Cen. Australia Standard Time","(GMT+09:30) Adelaide",-570,"Cen. Australia Standard Time",0,,4,,0,1,03:00:00,"Cen. Australia Daylight Time",-60,,10,,0,1,02:00:00
+14,"Central America Standard Time","(GMT-06:00) Central America",360,"Central America Standard Time",0,,0,,0,0,00:00:00,"Central America Daylight Time",-60,,0,,0,0,00:00:00
+15,"Central Asia Standard Time","(GMT+06:00) Central Asia",-360,"Central Asia Standard Time",0,,0,,0,0,00:00:00,"Central Asia Daylight Time",-60,,0,,0,0,00:00:00
+16,"Central Europe Standard Time","(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",-60,"Central Europe Standard Time",0,,10,,0,5,03:00:00,"Central Europe Daylight Time",-60,,3,,0,5,02:00:00
+17,"Central European Standard Time","(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb",-60,"Central European Standard Time",0,,10,,0,5,03:00:00,"Central European Daylight Time",-60,,3,,0,5,02:00:00
+18,"Central Pacific Standard Time","(GMT+11:00) Solomon Is., New Caledonia",-660,"Central Pacific Standard Time",0,,0,,0,0,00:00:00,"Central Pacific Daylight Time",-60,,0,,0,0,00:00:00
+19,"Central Standard Time","(GMT-06:00) Central Time (US & Canada)",360,"Central Standard Time",0,,10,,0,5,02:00:00,"Central Daylight Time",-60,,4,,0,1,02:00:00
+51,"Chile Standard Time","(GMT-04:00) Chile",240,"Chile Standard Time",0,,5,,0,2,00:00:00,"Chile Daylight Time",-60,,8,,0,3,00:00:00
+20,"China Standard Time","(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi",-480,"China Standard Time",0,,0,,0,0,00:00:00,"China Daylight Time",-60,,0,,0,0,00:00:00
+110,"Cuba Standard Time","(GMT-05:00) Cuba Standard Time",300,"Cuba Standard Time",0,,10,,0,5,01:00:00,"Cuba Daylight Time",-60,,3,,0,3,00:00:00
+21,"Dateline Standard Time","(GMT-12:00) International Date Line West",720,"Dateline Standard Time",0,,0,,0,0,00:00:00,"Dateline Daylight Time",-60,,0,,0,0,00:00:00
+22,"E. Africa Standard Time","(GMT+03:00) Nairobi",-180,"E. Africa Standard Time",0,,0,,0,0,00:00:00,"E. Africa Daylight Time",-60,,0,,0,0,00:00:00
+23,"E. Australia Standard Time","(GMT+10:00) Brisbane",-600,"E. Australia Standard Time",0,,0,,0,0,00:00:00,"E. Australia Daylight Time",-60,,0,,0,0,00:00:00
+24,"E. Europe Standard Time","(GMT+02:00) Bucharest",-120,"E. Europe Standard Time",0,,10,,0,5,01:00:00,"E. Europe Daylight Time",-60,,3,,0,5,00:00:00
+25,"E. South America Standard Time","(GMT-03:00) Brasilia",180,"E. South America Standard Time",0,,2,,0,3,00:00:00,"E. South America Daylight Time",-60,,10,,0,3,00:00:00
+26,"Eastern Standard Time","(GMT-05:00) Eastern Time (US & Canada)",300,"Eastern Standard Time",0,,10,,0,5,02:00:00,"Eastern Daylight Time",-60,,4,,0,1,02:00:00
+27,"Egypt Standard Time","(GMT+02:00) Cairo",-120,"Egypt Standard Time",0,,0,,0,0,00:00:00,"Egypt Daylight Time",-60,,0,,0,0,00:00:00
+28,"Ekaterinburg Standard Time","(GMT+06:00) Ekaterinburg",-360,"Ekaterinburg Standard Time",0,,0,,0,0,00:00:00,"Ekaterinburg Daylight Time",-60,,0,,0,0,00:00:00
+30,"FLE Standard Time","(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",-120,"FLE Standard Time",0,,10,,0,5,04:00:00,"FLE Daylight Time",-60,,3,,0,5,03:00:00
+109,"Falkland Islands Standard Time","(GMT-03:00) Falkland Islands",180,"Falkland Islands Standard Time",0,,0,,0,0,00:00:00,"Falkland Islands Daylight Time",-60,,0,,0,0,00:00:00
+123,"Fiji Standard Time","(GMT+12:00) Fiji",-720,"Fiji Standard Time",0,,3,,0,1,03:00:00,"Fiji Daylight Time",-60,,10,,0,4,02:00:00
+31,"GMT Standard Time","(GMT) Dublin, Edinburgh, Lisbon, London",0,"GMT Standard Time",0,,10,,0,5,02:00:00,"GMT Daylight Time",-60,,3,,0,5,01:00:00
+34,"GTB Standard Time","(GMT+02:00) Athens, Beirut, Istanbul, Minsk",-120,"GTB Standard Time",0,,10,,0,5,03:00:00,"GTB Daylight Time",-60,,3,,0,5,02:00:00
+32,"Greenland Standard Time","(GMT-03:00) Greenland",180,"Greenland Standard Time",0,,10,,6,5,23:00:00,"Greenland Daylight Time",-60,,3,,6,5,22:00:00
+33,"Greenwich Standard Time","(GMT) Greenwich Mean Time",0,"Greenwich Standard Time",0,,0,,0,0,00:00:00,"Greenwich Daylight Time",-60,,0,,0,0,00:00:00
+79,"Guatemala Standard Time","(GMT-06:00) Guatemala",360,"Guatemala Standard Time",0,,0,,0,0,00:00:00,"Guatemala Daylight Time",-60,,0,,0,0,00:00:00
+106,"Hawaii-Aleutian Standard Time","(GMT-10:00) Adak",600,"Hawaii-Aleutian Standard Time",0,,10,,0,5,02:00:00,"Hawaii-Aleutian DaylightTime",-60,,4,,0,1,02:00:00
+35,"Hawaiian Standard Time","(GMT-10:00) Hawaii",600,"Hawaiian Standard Time",0,,0,,0,0,00:00:00,"Hawaiian Daylight Time",-60,,0,,0,0,00:00:00
+80,"Honduras Standard Time","(GMT-06:00) Honduras",360,"Honduras Standard Time",0,,8,,1,1,00:00:00,"Honduras Daylight Time",-60,,5,,0,1,00:00:00
+49,"Ikrutsk Standard Time","(GMT+09:00) Irkutsk",-540,"Irkutsk Standard Time",0,,0,,0,0,00:00:00,"Irkutsk Daylight Time",-60,,0,,0,0,00:00:00
+36,"India Standard Time","(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi",-330,"India Standard Time",0,,0,,0,0,00:00:00,"India Daylight Time",-60,,0,,0,0,00:00:00
+37,"Iran Standard Time","(GMT+03:30) Tehran",-210,"Iran Standard Time",0,,0,0,0,0,00:00:00,"Iran Standard Time",0,,0,,0,0,00:00:00
+38,"Israel Standard Time","(GMT+02:00) Tel Aviv, Jerusalem",-120,"Israel Standard Time",0,2006,10,1,0,0,02:00:00,"Israel Daylight Time",-60,2006,3,31,0,0,02:00:00
+82,"Jordan Standard Time","(GMT+02:00) Jordan",-120,"Jordan Standard Time",0,,10,,5,5,01:00:00,"Jordan Daylight Time",-60,,3,,5,5,00:00:00
+126,"Kaliningrad Standard Time","(GMT+03:00) Kaliningrad",-180,"Kaliningrad Standard Time",0,,0,,0,0,00:00:00,"Kaliningrad Daylight Time",-60,,0,,0,0,00:00:00
+39,"Korea Standard Time","(GMT+09:00) Seoul",-540,"Korea Standard Time",0,,0,,0,0,00:00:00,"Korea Daylight Time",-60,,0,,0,0,00:00:00
+50,"Krasnoyarsk Standard Time","(GMT+08:00) Krasnoyarsk",-480,"Krasnoyarsk Standard Time",0,,0,,0,0,00:00:00,"Krasnoyarsk Daylight Time",-60,,0,,0,0,00:00:00
+108,"Lebanon Standard Time","(GMT+02:00) Beirut",-120,"Lebanon Standard Time",0,,10,,0,5,00:00:00,"Lebanon DaylightTime",-60,,3,,0,5,00:00:00
+77,"Magadan Standard Time","(GMT+12:00) Magadan",-720,"Magadan Standard Time",0,,0,,0,0,00:00:00,"Magadan Daylight Time",-60,,0,,0,0,00:00:00
+124,"Marquesas Islands Standard Time","(GMT-09:30) Marquesas Islands",570,"Marquesas Islands Standard Time",0,,0,,0,0,00:00:00,"Marquesas Islands DaylightTime",-60,,0,,0,0,00:00:00
+29,"Marshall Islands Standard Time","(GMT+12:00) Marshall Islands",-720,"Marshall Islands Standard Time",0,,0,,0,0,00:00:00,"Marshall Islands Daylight Time",-60,,0,,0,0,00:00:00
+119,"Mauritius Standard Time","(GMT+04:00) Mauritius",-240,"Mauritius Standard Time",0,,0,,0,0,00:00:00,"Mauritius Daylight Time",-60,,0,,0,0,00:00:00
+40,"Mexico Standard Time","(GMT-06:00) Guadalajara, Mexico City, Monterrey",360,"Mexico Standard Time",0,,10,,0,5,02:00:00,"Mexico Daylight Time",-60,,4,,0,1,02:00:00
+41,"Mexico Standard Time 2","(GMT-07:00) Chihuahua, La Paz, Mazatlan",420,"Mexico Standard Time 2",0,,10,,0,5,02:00:00,"Mexico Daylight Time 2",-60,,4,,0,1,02:00:00
+42,"Mid-Atlantic Standard Time","(GMT-02:00) Mid-Atlantic",120,"Mid-Atlantic Standard Time",0,,9,,0,5,02:00:00,"Mid-Atlantic Daylight Time",-60,,3,,0,5,02:00:00
+58,"Midway Island Standard Time","(GMT-11:00) Midway Island",660,"Midway Island Standard Time",0,,0,,0,0,00:00:00,"Midway Island Daylight Time",-60,,0,,0,0,00:00:00
+117,"Morocco Standard Time","(GMT) Morocco",0,"Morocco Standard Time",0,,7,,0,5,00:00:00,"Morocco Daylight Time",-60,,4,,0,1,00:00:00
+43,"Mountain Standard Time","(GMT-07:00) Mountain Time (US & Canada)",420,"Mountain Standard Time",0,,10,,0,5,02:00:00,"Mountain Daylight Time",-60,,4,,0,1,02:00:00
+44,"Myanmar Standard Time","(GMT+06:30) Rangoon",-390,"Myanmar Standard Time",0,,0,,0,0,00:00:00,"Myanmar Daylight Time",-60,,0,,0,0,00:00:00
+103,"Namibia Standard Time","(GMT+01:00) Namibia",-60,"Namibia Standard Time",0,,4,,0,1,02:00:00,"Namibia DaylightTime",-60,,9,,0,1,02:00:00
+46,"Nepal Standard Time","(GMT+05:45) Kathmandu",-345,"Nepal Standard Time",0,,0,,0,0,00:00:00,"Nepal Daylight Time",-60,,0,,0,0,00:00:00
+47,"New Zealand Standard Time","(GMT+12:00) Auckland, Wellington",-720,"New Zealand Standard Time",0,,4,,0,1,02:00:00,"New Zealand Daylight Time",-60,,9,,0,5,02:00:00
+48,"Newfoundland Standard Time","(GMT-03:30) Newfoundland",210,"Newfoundland Standard Time",0,,10,,0,5,00:01:00,"Newfoundland Daylight Time",-60,,4,,0,1,00:01:00
+102,"Norfolk Island Standard Time","(GMT+11:30) Norfolk Island",-690,"Norfolk Island Standard Time",0,,0,,0,0,00:00:00,"Norfolk Island Standard Time",0,,0,,0,0,00:00:00
+45,"Novosibirsk Standard Time","(GMT+07:00) Novosibirsk",-420,"Novosibirsk Standard Time",0,,0,,0,0,00:00:00,"Novosibirsk Daylight Time",-60,,0,,0,0,00:00:00
+52,"Pacific Standard Time","(GMT-08:00) Pacific Time (US & Canada); Tijuana",480,"Pacific Standard Time",0,,10,,0,5,02:00:00,"Pacific Daylight Time",-60,,4,,0,1,02:00:00
+118,"Pakistan Standard Time","(GMT+05:00) Pakistan",-300,"Pakistan Standard Time",0,,0,,0,0,00:00:00,"Pakistan Daylight Time",0,,0,,0,0,00:00:00
+101,"Paraguay Standard Time","(GMT-04:00) Paraguay",240,"Paraguay Standard Time",0,,4,,0,2,00:00:00,"Paraguay DaylightTime",-60,,10,,0,1,00:00:00
+53,"Romance Standard Time","(GMT+01:00) Brussels, Copenhagen, Madrid, Paris",-60,"Romance Standard Time",0,,10,,0,5,03:00:00,"Romance Daylight Time",-60,,3,,0,5,02:00:00
+54,"Russian Standard Time","(GMT+04:00) Moscow, St. Petersburg, Volgograd",-240,"Russian Standard Time",0,,0,,0,0,00:00:00,"Russian Daylight Time",-60,,0,,0,0,00:00:00
+55,"SA Eastern Standard Time","(GMT-03:00) Georgetown, South America Eastern Time",180,"SA Eastern Standard Time",0,,0,,0,0,00:00:00,"SA Eastern Daylight Time",-60,,0,,0,0,00:00:00
+56,"SA Pacific Standard Time","(GMT-05:00) Bogota, Lima, Quito",300,"SA Pacific Standard Time",0,,0,,0,0,00:00:00,"SA Pacific Daylight Time",-60,,0,,0,0,00:00:00
+57,"SA Western Standard Time","(GMT-04:00) La Paz",240,"SA Western Standard Time",0,,0,,0,0,00:00:00,"SA Western Daylight Time",-60,,0,,0,0,00:00:00
+59,"SE Asia Standard Time","(GMT+07:00) Bangkok, Hanoi, Jakarta",-420,"SE Asia Standard Time",0,,0,,0,0,00:00:00,"SE Asia Daylight Time",-60,,0,,0,0,00:00:00
+122,"Samoa Standard Time","(GMT-11:00) Samoa",660,"Samoa Standard Time",0,,4,,6,1,04:00:00,"Samoa Daylight Time",-60,,9,,0,5,00:00:00
+60,"Singapore Standard Time","(GMT+08:00) Kuala Lumpur, Singapore",-480,"Singapore Standard Time",0,,0,,0,0,00:00:00,"Malay Peninsula Daylight Time",-60,,0,,0,0,00:00:00
+61,"South Africa Standard Time","(GMT+02:00) Harare, Pretoria",-120,"South Africa Standard Time",0,,0,,0,0,00:00:00,"South Africa Daylight Time",-60,,0,,0,0,00:00:00
+62,"Sri Lanka Standard Time","(GMT+06:00) Sri Jayawardenepura",-360,"Sri Lanka Standard Time",0,,0,,0,0,00:00:00,"Sri Lanka Daylight Time",-60,,0,,0,0,00:00:00
+111,"St Pierre and Miquelon Standard Time","(GMT-03:00) St Pierre and Miquelon",180,"St Pierre Standard Time",0,,11,,0,1,02:00:00,"St Pierre Daylight Time",-60,,3,,0,2,02:00:00
+81,"Syria Standard Time","(GMT+02:00) Syria",-120,"Syria Standard Time",0,,10,,5,5,00:00:00,"Syria DaylightTime",-60,,4,,5,1,00:00:00
+63,"Taipei Standard Time","(GMT+08:00) Taipei",-480,"Taipei Standard Time",0,,0,,0,0,00:00:00,"Taipei Daylight Time",-60,,0,,0,0,00:00:00
+64,"Tasmania Standard Time","(GMT+10:00) Hobart",-600,"Tasmania Standard Time",0,,3,,0,5,03:00:00,"Tasmania Daylight Time",-60,,10,,0,1,02:00:00
+105,"Tbilisi Standard Time","(GMT+04:00) Tbilisi",-240,"Tbilisi Standard Time",0,,0,,0,0,00:00:00,"Tbilisi Standard Time",0,,0,,0,0,00:00:00
+65,"Tokyo Standard Time","(GMT+09:00) Osaka, Sapporo, Tokyo",-540,"Tokyo Standard Time",0,,0,,0,0,00:00:00,"Tokyo Standard Time",0,,0,,0,0,00:00:00
+66,"Tonga Standard Time","(GMT+13:00) Nuku'alofa",-780,"Tonga Standard Time",0,,0,,0,0,00:00:00,"Tonga Daylight Time",-60,,0,,0,0,00:00:00
+114,"Turkey Standard Time","(GMT+02:00) Turkey",-120,"Turkey Standard Time",0,,10,,0,5,04:00:00,"Turkey Daylight Time",-60,,3,,0,5,03:00:00
+67,"US Eastern Standard Time","(GMT-05:00) Indiana (East)",300,"US Eastern Standard Time",0,,0,,0,0,00:00:00,"US Eastern Daylight Time",-60,,0,,0,0,00:00:00
+68,"US Mountain Standard Time","(GMT-07:00) Arizona",420,"US Mountain Standard Time",0,,0,,0,0,00:00:00,"US Mountain Daylight Time",-60,,0,,0,0,00:00:00
+104,"Ulaanbaatar Standard Time","(GMT+08:00) Ulaanbaatar",-480,"Ulaanbaatar Standard Time",0,,0,,0,0,00:00:00,"Ulaanbaatar Daylight Time",0,,0,,0,0,00:00:00
+76,"Uruguay Standard Time","(GMT-03:00) Uruguay",180,"Uruguay Standard Time",0,,3,,0,2,02:00:00,"Uruguay Daylight Time",-60,,10,,0,1,02:00:00
+115,"Venezuela Standard Time","(GMT-04:30) Venezuela",270,"Venezuela Standard Time",0,,0,,,0,00:00:00,"Venezuela Daylight Time",-60,,0,,0,0,00:00:00
+69,"Vladivostok Standard Time","(GMT+11:00) Vladivostok",-660,"Vladivostok Standard Time",0,,0,,0,0,00:00:00,"Vladivostok Daylight Time",-60,,0,,0,0,00:00:00
+70,"W. Australia Standard Time","(GMT+08:00) Perth",-480,"W. Australia Standard Time",0,,0,,0,0,00:00:00,"W. Australia Daylight Time",0,,0,,0,0,00:00:00
+71,"W. Central Africa Standard Time","(GMT+01:00) West Central Africa",-60,"W. Central Africa Standard Time",0,,0,,0,0,00:00:00,"W. Central Africa Daylight Time",-60,,0,,0,0,00:00:00
+72,"W. Europe Standard Time","(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",-60,"W. Europe Standard Time",0,,10,,0,5,03:00:00,"W. Europe Daylight Time",-60,,3,,0,5,02:00:00
+73,"West Asia Standard Time","(GMT+05:00) Tashkent",-300,"West Asia Standard Time",0,,0,,0,0,00:00:00,"West Asia Daylight Time",-60,,0,,0,0,00:00:00
+74,"West Pacific Standard Time","(GMT+10:00) Guam, Port Moresby",-600,"West Pacific Standard Time",0,,0,,0,0,00:00:00,"West Pacific Daylight Time",-60,,0,,0,0,00:00:00
+75,"Yakutsk Standard Time","(GMT+10:00) Yakutsk",-600,"Yakutsk Standard Time",0,,0,,0,0,00:00:00,"Yakutsk Daylight Time",-60,,0,,0,0,00:00:00

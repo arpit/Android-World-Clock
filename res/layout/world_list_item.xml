@@ -1,0 +1,11 @@
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+		android:id="@+id/linearLayout1" android:layout_width="fill_parent"
+	 	android:orientation="vertical" android:layout_height="wrap_content"
+	 	android:padding="50px">
+        <TextView 
+        	android:id="@+id/nameTF" 
+        	android:layout_width="wrap_content" 
+       	 	android:layout_height="wrap_content"
+       	 	android:text="test">
+       	</TextView>
+    </LinearLayout>
