@@ -16,9 +16,11 @@ import com.example.android.apis.R;
 public class CountriesAdapter extends ArrayAdapter<CountryVO> {
 
     private ArrayList<CountryVO> items;
-
-    public CountriesAdapter(Activity activity, int textViewResourceId, ArrayList<CountryVO> items) {
+    private int renderer;
+    
+    public CountriesAdapter(Activity activity, int textViewResourceId, ArrayList<CountryVO> items, int renderer) {
             super(activity, textViewResourceId, items);
+            this.renderer = renderer;
             this.items = items;
     }
 
@@ -27,13 +29,18 @@ public class CountriesAdapter extends ArrayAdapter<CountryVO> {
             View v = convertView;
             if (v == null) {
                 LayoutInflater vi = (LayoutInflater)(getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE));
-                v = vi.inflate(R.layout.world_list_item, null);
+                v = vi.inflate(renderer, null);
             }
             CountryVO o = items.get(position);
             if (o != null) {
-                    TextView nameTF = (TextView) v.findViewById(R.id.nameTF);
-                    if (nameTF != null) {
-                    	nameTF.setText("Name: "+o.name);                            }
+                    TextView countryTF = (TextView) v.findViewById(R.id.countryTF);
+                    if (countryTF != null) {
+                    	countryTF.setText(o.countryName);                            }
+                    
+                    TextView cityTF = (TextView) v.findViewById(R.id.cityTF);
+                    if (cityTF != null) {
+                    	cityTF.setText(o.cityName);                            }
+                    
                     
             }
             return v;

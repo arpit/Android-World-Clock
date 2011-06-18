@@ -1,6 +1,9 @@
 package com.arpitonline.worldclock;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import com.arpitonline.worldclock.models.CountryVO;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -34,26 +37,31 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		
 	}
 	
-	public String getTimeZoneFor(String s){
+	public ArrayList<CountryVO> getTimeZoneForCountry(String s){
 		Cursor c ;
 		try{
 		c = theDatabase.query("data", new String[] {KEY_CITY, KEY_TIMEZONE, KEY_COUNTRY},KEY_COUNTRY+"='"+s+"';", null, null, null, null, null);
 		}catch(Exception e){
 			Log.e(WorldClock.WORLD_CLOCK, "ERROR: "+e.getMessage());
-			return "Exception "+e.getMessage();
+			return null;
 		}
 		
 		int count = c.getCount();
 	
 		if(count == 0){
-			return "Nothing found";
+			return null;
 		}
 		c.moveToFirst();
-		String ret = "Return: ";
+		ArrayList<CountryVO> list = new ArrayList<CountryVO>();
 		for(int i=0;  i<count; i++){
-			ret += c.getString(0)+c.getString(1)+c.getString(2);
+			
+			CountryVO vo = new CountryVO(c.getString(2), null);
+			vo.cityName = c.getString(0);
+			vo.timezone = c.getString(1);
+			list.add(vo);
+			c.moveToNext();
 		}
-		return ret;
+		return list;
 		
 	}
 }

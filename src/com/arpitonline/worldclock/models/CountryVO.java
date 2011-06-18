@@ -1,11 +1,14 @@
 package com.arpitonline.worldclock.models;
 
 public class CountryVO {
-	public String name;
+	public String countryName;
+	public String cityName;
 	public String backgroundImageURL;
+	public String timezone;
+	
 	
 	public CountryVO(String name, String backgroundImageURL){
-		this.name = name;
+		this.countryName = name;
 		this.backgroundImageURL = backgroundImageURL;
 	}
 }
