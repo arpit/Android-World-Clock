@@ -10,26 +10,21 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.arpitonline.worldclock.models.CountryVO;
+import com.arpitonline.worldclock.models.LocationVO;
 import com.example.android.apis.R;
 
 public class AllTimeZones extends ListActivity {
 	
 	
-	private ArrayList<CountryVO> COUNTRIES = new ArrayList<CountryVO>();
+	private ArrayList<LocationVO> locations = new ArrayList<LocationVO>();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  
 	  Log.i(WorldClock.WORLD_CLOCK, "--done opening db---");
-	  
-	  COUNTRIES.add(new CountryVO("India","" ));	
-	  COUNTRIES.add(new CountryVO("USA","" ));	
-
-	  
-	  
-	  setListAdapter(new CountriesAdapter(this, R.layout.world_list_item, COUNTRIES, R.layout.world_list_item));
+	  setListAdapter(new CountriesAdapter(this, R.layout.world_list_item, locations, 
+			  R.layout.world_list_item));
 
 	  ListView lv = getListView();
 	  lv.setTextFilterEnabled(true);

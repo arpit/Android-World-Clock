@@ -33,8 +33,8 @@ public class WorldClock extends Activity {
 	public static final String WORLD_CLOCK = "world clock";
 	
     private Flickr flickr;
-    private static final String key = "cc978b462c274d7c88275fb2bf45240a";
-    private static final String secret = "dfc31ad697d55707";
+    private static final String key = "";
+    private static final String secret = "";
     
     private RequestContext requestContext;
 	

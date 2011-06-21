@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.arpitonline.worldclock.models.CountryVO;
+import com.arpitonline.worldclock.models.LocationVO;
 import com.example.android.apis.R;
 
-public class CountriesAdapter extends ArrayAdapter<CountryVO> {
+public class CountriesAdapter extends ArrayAdapter<LocationVO> {
 
-    private ArrayList<CountryVO> items;
+    private ArrayList<LocationVO> items;
     private int renderer;
     
-    public CountriesAdapter(Activity activity, int textViewResourceId, ArrayList<CountryVO> items, int renderer) {
+    public CountriesAdapter(Activity activity, int textViewResourceId, ArrayList<LocationVO> items, int renderer) {
             super(activity, textViewResourceId, items);
             this.renderer = renderer;
             this.items = items;
@@ -31,7 +31,7 @@ public class CountriesAdapter extends ArrayAdapter<CountryVO> {
                 LayoutInflater vi = (LayoutInflater)(getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE));
                 v = vi.inflate(renderer, null);
             }
-            CountryVO o = items.get(position);
+            LocationVO o = items.get(position);
             if (o != null) {
                     TextView countryTF = (TextView) v.findViewById(R.id.countryTF);
                     if (countryTF != null) {

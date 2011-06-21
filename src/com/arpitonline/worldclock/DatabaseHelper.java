@@ -11,6 +11,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Uses the method mentioned in the link below to copy a database thats packaged
@@ -63,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     private void copyDataBase() throws IOException{
-    	
+    	Log.i(WorldClock.WORLD_CLOCK, "[copying database]");
     	File f = new File(DB_PATH);
     	f.mkdirs();
     	

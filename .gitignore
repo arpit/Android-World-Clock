@@ -1,3 +1,5 @@
 .DS_Store
 .classpath
 .project
+*.class
+src/com/arpitonline/worldclock/WorldClock.java

@@ -3,7 +3,7 @@ package com.arpitonline.worldclock;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.arpitonline.worldclock.models.CountryVO;
+import com.arpitonline.worldclock.models.LocationVO;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -17,8 +17,10 @@ public class TimeZoneLookupService extends DatabaseHelper {
 	
 	public static final String DATABASE_TABLE = "data";
 	public static final String KEY_CITY = "city";
-	public static final String KEY_TIMEZONE = "timezone";
 	public static final String KEY_COUNTRY= "country";
+	public static final String KEY_TIMEZONE = "timezone";
+	public static final String KEY_TIMEZONE_DISPLAY_NAME = "display_name";
+	public static final String KEY_TIMEZONE_ID = "timezone_id";
 	
 	public TimeZoneLookupService(Context c){
 		 
@@ -37,10 +39,10 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		
 	}
 	
-	public ArrayList<CountryVO> getTimeZoneForCountry(String s){
+	public ArrayList<LocationVO> getTimeZoneForCity(String s){
 		Cursor c ;
 		try{
-		c = theDatabase.query("data", new String[] {KEY_CITY, KEY_TIMEZONE, KEY_COUNTRY},KEY_COUNTRY+"='"+s+"';", null, null, null, null, null);
+		c = theDatabase.query("data", new String[] {KEY_CITY, KEY_TIMEZONE, KEY_COUNTRY, KEY_TIMEZONE_DISPLAY_NAME, KEY_TIMEZONE_ID},KEY_CITY+" like '%"+s+"%';", null, null, null, null, null);
 		}catch(Exception e){
 			Log.e(WorldClock.WORLD_CLOCK, "ERROR: "+e.getMessage());
 			return null;
@@ -52,12 +54,15 @@ public class TimeZoneLookupService extends DatabaseHelper {
 			return null;
 		}
 		c.moveToFirst();
-		ArrayList<CountryVO> list = new ArrayList<CountryVO>();
+		ArrayList<LocationVO> list = new ArrayList<LocationVO>();
 		for(int i=0;  i<count; i++){
 			
-			CountryVO vo = new CountryVO(c.getString(2), null);
+			LocationVO vo = new LocationVO();
 			vo.cityName = c.getString(0);
-			vo.timezone = c.getString(1);
+			vo.countryName = c.getString(2);
+			vo.setTimezoneString(c.getString(1));
+			vo.setTimeZoneDisplayName(c.getString(3));
+			vo.setTimeZoneId(c.getString(4));
 			list.add(vo);
 			c.moveToNext();
 		}
