@@ -1,32 +1,23 @@
 package com.arpitonline.worldclock;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.TimeZone;
 
-import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
-import org.joda.time.format.DateTimeFormatter;
 
-import com.arpitonline.worldclock.models.LocationVO;
-import com.arpitonline.worldclock.R;
-
-import android.app.Activity;
 import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.method.DateTimeKeyListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+
+import com.arpitonline.worldclock.models.LocationVO;
 
 
 public class TimeZoneLookupActivity extends ListActivity {
@@ -67,23 +58,24 @@ public class TimeZoneLookupActivity extends ListActivity {
 					Toast.makeText(view.getContext(), "Timezone not found", Toast.LENGTH_SHORT).show();
 				}
 				else{
+					
 					DateTimeZone dtz = DateTimeZone.forID(tz.getID());
-					DateTime dt = new DateTime();
-					DateTime current = dt.withZone(dtz);
+					location.dateTimeZone = dtz; 
 					
-					LocalTime current2 = current.toLocalTime();
-//					
-					String out = "";
-					out += "Time: "+current2.getHourOfDay()+":"+current2.getMinuteOfHour();
-					out+="\ntimezone: "+dtz.getID();
-					out+="\nDaylight Savings? "+dtz.toTimeZone().inDaylightTime(new Date());
+					WorldClock.getInstance().addLocation(location);
 					
-					Toast.makeText(view.getContext(), out, Toast.LENGTH_LONG).show();
+					addTimeZone(location.toString());
+					
+					
 				}
-				
-//		    	
 			}
 		});
+	}
+	
+	private void addTimeZone(String s){
+		Intent intent = new Intent(this, MyTimeZones.class);
+		intent.putExtra("locationAdded",s );
+		startActivity(intent);
 	}
 	
 	private void lookupTimeZone(String s){

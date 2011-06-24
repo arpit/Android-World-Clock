@@ -4,28 +4,26 @@ import java.util.ArrayList;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.arpitonline.worldclock.models.LocationVO;
-import com.arpitonline.worldclock.R;
 
-public class AllTimeZones extends ListActivity {
+public class MyTimeZones extends ListActivity {
 	
-	
-	private ArrayList<LocationVO> locations = new ArrayList<LocationVO>();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  
-	  Log.i(WorldClock.WORLD_CLOCK, "--done opening db---");
-	  setListAdapter(new CountriesAdapter(this, R.layout.world_list_item, locations, 
-			  R.layout.world_list_item));
-
+	  
+	  CountriesAdapter adapter = new CountriesAdapter(this, R.layout.world_list_item, WorldClock.getInstance().getMyLocations(), 
+			  R.layout.world_list_item);
+	  setListAdapter(adapter);
+	  
 	  ListView lv = getListView();
 	  lv.setTextFilterEnabled(true);
 
@@ -36,10 +34,18 @@ public class AllTimeZones extends ListActivity {
 	      // When clicked, show a toast with the TextView text
 	      //Toast.makeText(getApplicationContext(), ((TextView) view).getText(),
 	         // Toast.LENGTH_SHORT).show();
-	    	
-	    
 	    }
 	  });
+	  
+	  Bundle extras = getIntent().getExtras();
+	  if (extras == null) {
+		return;
+	  }
+	  else{
+		  String addedLocation = extras.getString("locationAdded");
+		  Toast.makeText(this, "Added "+addedLocation , Toast.LENGTH_SHORT).show();
+	  }
+	  
 	}
 	
 	

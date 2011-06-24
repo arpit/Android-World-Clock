@@ -39,7 +39,7 @@ public class CountriesAdapter extends ArrayAdapter<LocationVO> {
                     
                     TextView cityTF = (TextView) v.findViewById(R.id.cityTF);
                     if (cityTF != null) {
-                    	cityTF.setText(o.cityName);                            }
+                    	cityTF.setText(o.cityName+"> "+o.getFormattedTime());                            }
                     
                     
             }

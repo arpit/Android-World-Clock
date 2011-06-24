@@ -2,19 +2,31 @@ package com.arpitonline.worldclock.models;
 
 import java.util.TimeZone;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalTime;
+
+import com.arpitonline.worldclock.FlickrActivity;
 import com.arpitonline.worldclock.WorldClock;
 
 import android.util.Log;
 
 public class LocationVO {
+	
 	public String cityName;
 	public String countryName;
 	public String gmtOffsetString;
+	
+	public DateTimeZone dateTimeZone;
 	
 	private String timezoneString;
 	private String timezoneDisplayName;
 	private String[] citiesInTimeZone;
 	private String timeZoneId;
+	
+
+	public LocationVO(){
+	}
 	
 	public void setTimezoneString(String timezone) {
 		this.timezoneString = timezone;
@@ -44,8 +56,18 @@ public class LocationVO {
 		}
 		return TimeZone.getTimeZone(timeZoneId);
 	}
-
-
-	public LocationVO(){
+	
+	public String getFormattedTime(){
+		if(dateTimeZone == null){
+			return null;
+		}
+		DateTime dt = new DateTime();
+		DateTime current = dt.withZone(this.dateTimeZone);					
+		LocalTime time = current.toLocalTime();
+		return time.getHourOfDay()+":"+time.getMinuteOfHour();
+	}
+	
+	public String toString(){
+		return cityName+", "+countryName;
 	}
 }

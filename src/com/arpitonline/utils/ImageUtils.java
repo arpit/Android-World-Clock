@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.arpitonline.worldclock.FlickrActivity;
 import com.arpitonline.worldclock.WorldClock;
 
 import android.graphics.Bitmap;
