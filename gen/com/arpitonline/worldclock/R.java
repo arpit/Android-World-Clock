@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.android.apis;
+package com.arpitonline.worldclock;
 
 public final class R {
     public static final class attr {

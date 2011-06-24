@@ -12,7 +12,7 @@ import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormatter;
 
 import com.arpitonline.worldclock.models.LocationVO;
-import com.example.android.apis.R;
+import com.arpitonline.worldclock.R;
 
 import android.app.Activity;
 import android.app.ListActivity;

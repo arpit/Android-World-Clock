@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.arpitonline.worldclock.models.LocationVO;
-import com.example.android.apis.R;
+import com.arpitonline.worldclock.R;
 
 public class AllTimeZones extends ListActivity {
 	
