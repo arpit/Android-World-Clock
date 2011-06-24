@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 
+import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
+import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormatter;
 
 import com.arpitonline.worldclock.models.LocationVO;
 import com.example.android.apis.R;
@@ -55,22 +60,25 @@ public class TimeZoneLookupActivity extends ListActivity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				
-				//String tzn = searchResults.get(position).timezone;
 				LocationVO location = searchResults.get(position);
+				TimeZone tz = location.getTimeZone();
 				
-				//TimeZone tz = TimeZone.getTimeZone("America/New_York");
-				//DateTimeZone dtz = DateTimeZone.forID("America/New_York");
-				//DateTimeZone dtz = DateTimeZone.forTimeZone(tz);
-				
-				//long d = dtz.convertLocalToUTC(new Date().getTime(), false);
-				//dtz.convertUTCToLocal(d);
-				
-				//tz = dtz.toTimeZone();
-				if(location.getTimeZone()==null){
+				if(tz==null){
 					Toast.makeText(view.getContext(), "Timezone not found", Toast.LENGTH_SHORT).show();
 				}
 				else{
-					Toast.makeText(view.getContext(), "name: "+location.getTimeZone().getDisplayName(), Toast.LENGTH_SHORT).show();
+					DateTimeZone dtz = DateTimeZone.forID(tz.getID());
+					DateTime dt = new DateTime();
+					DateTime current = dt.withZone(dtz);
+					
+					LocalTime current2 = current.toLocalTime();
+//					
+					String out = "";
+					out += "Time: "+current2.getHourOfDay()+":"+current2.getMinuteOfHour();
+					out+="\ntimezone: "+dtz.getID();
+					out+="\nDaylight Savings? "+dtz.toTimeZone().inDaylightTime(new Date());
+					
+					Toast.makeText(view.getContext(), out, Toast.LENGTH_LONG).show();
 				}
 				
 //		    	
