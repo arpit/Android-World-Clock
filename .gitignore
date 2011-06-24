@@ -2,4 +2,5 @@
 .classpath
 .project
 *.class
+bin/*
 src/com/arpitonline/worldclock/WorldClock.java
