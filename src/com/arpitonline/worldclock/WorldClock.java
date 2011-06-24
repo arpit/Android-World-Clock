@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import com.arpitonline.worldclock.models.LocationVO;
 
+/**
+ * Main business logic class for the app 
+ */
 public class WorldClock {
 
 	public static final String WORLD_CLOCK = "world clock";
@@ -11,7 +14,6 @@ public class WorldClock {
 	private ArrayList<LocationVO> locations = new ArrayList<LocationVO>();
 	
 	private WorldClock(){
-		
 	}
 	
 	private static WorldClock instance;
