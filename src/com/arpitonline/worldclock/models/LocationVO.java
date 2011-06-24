@@ -38,7 +38,8 @@ public class LocationVO {
 	}
 	
 	public TimeZone getTimeZone(){
-		if(timeZoneId==null|| timeZoneId == ""){
+		Log.i(WorldClock.WORLD_CLOCK, "TimezoneID: "+timeZoneId);
+		if(timeZoneId==null|| timeZoneId.length() ==0){
 			return null;
 		}
 		return TimeZone.getTimeZone(timeZoneId);
