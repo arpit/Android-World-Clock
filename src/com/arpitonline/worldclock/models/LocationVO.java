@@ -57,12 +57,20 @@ public class LocationVO {
 		return TimeZone.getTimeZone(timeZoneId);
 	}
 	
-	public LocalTime getTime(){
+	public DateTime getDateTime(){
 		if(dateTimeZone == null){
 			return null;
 		}
 		DateTime dt = new DateTime();
-		DateTime current = dt.withZone(this.dateTimeZone);					
+		DateTime current = dt.withZone(this.dateTimeZone);
+		return current;
+	}
+	
+	public LocalTime getTime(){
+		DateTime current = getDateTime();
+		if(current == null){
+			return null;
+		}
 		return current.toLocalTime();
 	}
 	

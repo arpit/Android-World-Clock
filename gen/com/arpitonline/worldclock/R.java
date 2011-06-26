@@ -23,6 +23,7 @@ public final class R {
         public static final int cityTF=0x7f060003;
         public static final int countryTF=0x7f060004;
         public static final int currentTimeTF=0x7f060007;
+        public static final int dayTF=0x7f060008;
         public static final int imageView1=0x7f060001;
         public static final int linearLayout1=0x7f060002;
         public static final int scrollview=0x7f060005;

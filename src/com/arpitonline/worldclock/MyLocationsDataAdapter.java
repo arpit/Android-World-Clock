@@ -2,6 +2,9 @@ package com.arpitonline.worldclock;
 
 import java.util.ArrayList;
 
+import org.joda.time.DateTime;
+import org.joda.time.LocalTime;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
@@ -33,9 +36,8 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
             v = vi.inflate(renderer, null);
         }
         
-        
-        TextView countryTF = (TextView) v.findViewById(R.id.countryTF);
-        countryTF.setText(o.countryName);                            
+        DateTime dateTime = o.getDateTime();
+        LocalTime time = o.getTime();
         
         TextView cityTF = (TextView) v.findViewById(R.id.cityTF);
         cityTF.setText(o.cityName);                            
@@ -43,9 +45,16 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
         TextView timeTF = (TextView) v.findViewById(R.id.currentTimeTF);
         timeTF.setText(o.getFormattedTime());
         
+        TextView countryTF = (TextView) v.findViewById(R.id.dayTF);
+        
+        
+        countryTF.setText(dateTime.dayOfWeek().getAsText());                            
+        
         
         BitmapDrawable bg;
-		if(o.getTime().getHourOfDay() > 18 || o.getTime().getHourOfDay() < 6){
+        
+        
+		if(time.getHourOfDay() > 18 || time.getHourOfDay() < 6){
 			bg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.night_bg);
 		}
 		else{

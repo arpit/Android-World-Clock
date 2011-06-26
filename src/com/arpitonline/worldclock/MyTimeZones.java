@@ -33,8 +33,8 @@ public class MyTimeZones extends ListActivity {
 	  
 	  
 	  ListView lv = getListView();
-	  lv.setCacheColorHint(Color.rgb(36, 33, 32));
-	  lv.setBackgroundColor(Color.rgb(36, 33, 32));
+	  //lv.setCacheColorHint(Color.rgb(36, 33, 32));
+	  //lv.setBackgroundColor(Color.rgb(36, 33, 32));
 
 	  
 	  lv.addHeaderView(buildHeader());
