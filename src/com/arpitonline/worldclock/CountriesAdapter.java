@@ -15,8 +15,8 @@ import com.arpitonline.worldclock.R;
 
 public class CountriesAdapter extends ArrayAdapter<LocationVO> {
 
-    private ArrayList<LocationVO> items;
-    private int renderer;
+    protected ArrayList<LocationVO> items;
+    protected int renderer;
     
     public CountriesAdapter(Activity activity, int textViewResourceId, ArrayList<LocationVO> items, int renderer) {
             super(activity, textViewResourceId, items);
@@ -39,9 +39,7 @@ public class CountriesAdapter extends ArrayAdapter<LocationVO> {
                     
                     TextView cityTF = (TextView) v.findViewById(R.id.cityTF);
                     if (cityTF != null) {
-                    	cityTF.setText(o.cityName+"> "+o.getFormattedTime());                            }
-                    
-                    
+                    	cityTF.setText(o.cityName);                            }
             }
             return v;
     }

@@ -3,8 +3,10 @@ package com.arpitonline.worldclock;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -14,17 +16,24 @@ import com.arpitonline.worldclock.models.LocationVO;
 
 public class MyTimeZones extends ListActivity {
 	
+	@Override
+	public void onAttachedToWindow() {
+	    super.onAttachedToWindow();
+	    Window window = getWindow();
+	    window.setFormat(PixelFormat.RGBA_8888);
+	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  
 	  
-	  CountriesAdapter adapter = new CountriesAdapter(this, R.layout.world_list_item, WorldClock.getInstance().getMyLocations(), 
+	  MyLocationsDataAdapter adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, WorldClock.getInstance().getMyLocations(), 
 			  R.layout.world_list_item);
 	  setListAdapter(adapter);
 	  
 	  ListView lv = getListView();
+	  lv.setDividerHeight(0);
 	  lv.setTextFilterEnabled(true);
 
 	  

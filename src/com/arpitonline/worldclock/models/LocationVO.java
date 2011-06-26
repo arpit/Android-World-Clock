@@ -57,14 +57,27 @@ public class LocationVO {
 		return TimeZone.getTimeZone(timeZoneId);
 	}
 	
-	public String getFormattedTime(){
+	public LocalTime getTime(){
 		if(dateTimeZone == null){
 			return null;
 		}
 		DateTime dt = new DateTime();
 		DateTime current = dt.withZone(this.dateTimeZone);					
-		LocalTime time = current.toLocalTime();
-		return time.getHourOfDay()+":"+time.getMinuteOfHour();
+		return current.toLocalTime();
+	}
+	
+	public String getFormattedTime(){
+		LocalTime time = getTime();
+		String amPm = "am";
+		int hr;
+		if(time.getHourOfDay() > 12){
+			amPm = "pm";
+			hr = time.getHourOfDay()-12;
+		}
+		else{
+			hr = time.getHourOfDay();
+		}
+		return hr+":"+ (time.getMinuteOfHour()>9?time.getMinuteOfHour():"0"+time.getMinuteOfHour())+" "+amPm;
 	}
 	
 	public String toString(){

@@ -1,19 +1,63 @@
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
-		android:id="@+id/linearLayout1" android:layout_width="fill_parent"
-	 	android:orientation="vertical" android:layout_height="wrap_content"
-	 	android:padding="50px">
+<FrameLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_height="100px"
+ 	android:layout_width="fill_parent">	
+	
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_gravity="left"
+		>
+		
+			<ImageView android:id="@+id/backgroundImage"
+					   android:layout_width="572px"
+					   android:layout_height="92px"
+					   android:layout_gravity="left"
+					   android:padding = "0dp"
+					   android:layout_margin="0dp"
+					   android:scaleType="fitStart" 
+		/>
+	</ScrollView>
+	
+		
+	
+	<LinearLayout  
+		android:id="@+id/linearLayout1" 
+		android:layout_width="fill_parent"
+	 	android:layout_height="fill_parent"
+	 	android:orientation="vertical" 
+	 	android:padding="5px"
+	 	>
 	 	
 	 	<TextView 
         	android:id="@+id/cityTF" 
         	android:layout_width="wrap_content" 
        	 	android:layout_height="wrap_content"
+       	 	android:gravity="right"
        	 	android:text="test">
        	</TextView>
+	 		
+	 	<TextView 
+        	android:id="@+id/currentTimeTF" 
+        	android:layout_width="wrap_content" 
+       	 	android:layout_height="wrap_content"
+       	 	android:gravity="right"
+       	 	android:textSize="32px"
+       	 	android:text="test"
+       	 	android:textColor="#ffffff"
+       	 	android:layout_marginTop="-5px"
+       	 	android:textStyle="bold">
+       	</TextView>
+	 	
 	 	
         <TextView 
         	android:id="@+id/countryTF" 
         	android:layout_width="wrap_content" 
        	 	android:layout_height="wrap_content"
-       	 	android:text="test">
+       	 	android:gravity="right"
+       	 	android:text="test"
+       	 	android:layout_marginTop="-5px">
        	</TextView>
+       	
     </LinearLayout>
+</FrameLayout>
