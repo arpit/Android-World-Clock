@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.arpitonline.worldclock.models.LocationVO;
@@ -34,30 +35,31 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
         
         
         TextView countryTF = (TextView) v.findViewById(R.id.countryTF);
-        if (countryTF != null) {
-        	countryTF.setText(o.countryName);                            }
+        countryTF.setText(o.countryName);                            
         
         TextView cityTF = (TextView) v.findViewById(R.id.cityTF);
-        if (cityTF != null) {
-        	cityTF.setText(o.cityName);                            }
+        cityTF.setText(o.cityName);                            
 
+        TextView timeTF = (TextView) v.findViewById(R.id.currentTimeTF);
+        timeTF.setText(o.getFormattedTime());
+        
+        
         BitmapDrawable bg;
 		if(o.getTime().getHourOfDay() > 18 || o.getTime().getHourOfDay() < 6){
 			bg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.night_bg);
 		}
 		else{
-			bg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.day_bg);
+			bg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.day2_bg);
 		}
 		
 		ImageView img = (ImageView)v.findViewById(R.id.backgroundImage);
 		img.setImageDrawable(bg);
 		
-		//v.setBackgroundDrawable(bg);
-		TextView timeTF = (TextView) v.findViewById(R.id.currentTimeTF);
-        if (timeTF != null) {
-           timeTF.setText(o.getFormattedTime());
-        }
-        return v;
+		ScrollView sc = (ScrollView)v.findViewById(R.id.scrollview);
+		int pos = (int)(100);
+		//sc.scrollTo(-pos, 0);
+		
+		return v;
         
 	}
 }

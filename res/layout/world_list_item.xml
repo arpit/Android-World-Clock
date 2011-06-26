@@ -1,21 +1,25 @@
-<FrameLayout 
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android" 
-	android:layout_height="100px"
- 	android:layout_width="fill_parent">	
-	
+	android:layout_height="120px"
+ 	android:layout_width="fill_parent"
+ 	>
+ 	
 	<ScrollView
+		android:id="@+id/scrollview"
 		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
+		android:layout_height="120px"
 		android:layout_gravity="left"
+		android:background="#ff0000"
 		>
 		
 			<ImageView android:id="@+id/backgroundImage"
 					   android:layout_width="572px"
-					   android:layout_height="92px"
+					   android:layout_height="120px"
 					   android:layout_gravity="left"
 					   android:padding = "0dp"
 					   android:layout_margin="0dp"
-					   android:scaleType="fitStart" 
+					   android:scaleType="centerCrop"
+					    
 		/>
 	</ScrollView>
 	
@@ -23,17 +27,20 @@
 	
 	<LinearLayout  
 		android:id="@+id/linearLayout1" 
-		android:layout_width="fill_parent"
-	 	android:layout_height="fill_parent"
+		android:layout_width="wrap_content"
+	 	android:layout_height="wrap_content"
 	 	android:orientation="vertical" 
-	 	android:padding="5px"
-	 	>
+	 	android:layout_margin="15dp"
+	 	android:padding="15dp"
+	 	
+	 	android:layout_centerVertical="true"
+	 	android:background="@drawable/rounded_corner_translucent_black">
 	 	
 	 	<TextView 
         	android:id="@+id/cityTF" 
         	android:layout_width="wrap_content" 
        	 	android:layout_height="wrap_content"
-       	 	android:gravity="right"
+       	 	android:gravity="center"
        	 	android:text="test">
        	</TextView>
 	 		
@@ -41,9 +48,8 @@
         	android:id="@+id/currentTimeTF" 
         	android:layout_width="wrap_content" 
        	 	android:layout_height="wrap_content"
-       	 	android:gravity="right"
-       	 	android:textSize="32px"
-       	 	android:text="test"
+       	 	android:gravity="center"
+       	 	android:textSize="28px"
        	 	android:textColor="#ffffff"
        	 	android:layout_marginTop="-5px"
        	 	android:textStyle="bold">
@@ -54,10 +60,9 @@
         	android:id="@+id/countryTF" 
         	android:layout_width="wrap_content" 
        	 	android:layout_height="wrap_content"
-       	 	android:gravity="right"
-       	 	android:text="test"
+       	 	android:gravity="center"
        	 	android:layout_marginTop="-5px">
        	</TextView>
        	
     </LinearLayout>
-</FrameLayout>
+</RelativeLayout>

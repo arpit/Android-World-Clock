@@ -74,10 +74,15 @@ public class LocationVO {
 			amPm = "pm";
 			hr = time.getHourOfDay()-12;
 		}
-		else{
+		else if (time.getHourOfDay() == 12){
+			amPm = "pm";
 			hr = time.getHourOfDay();
 		}
-		return hr+":"+ (time.getMinuteOfHour()>9?time.getMinuteOfHour():"0"+time.getMinuteOfHour())+" "+amPm;
+		else{
+			amPm = "am";
+			hr = time.getHourOfDay();
+		}
+		return (hr<10?"0"+hr:hr)+":"+ (time.getMinuteOfHour()>9?time.getMinuteOfHour():"0"+time.getMinuteOfHour())+" "+amPm;
 	}
 	
 	public String toString(){
