@@ -2,6 +2,8 @@ package com.arpitonline.worldclock;
 
 import java.util.ArrayList;
 
+import android.content.Context;
+
 import com.arpitonline.worldclock.models.LocationVO;
 
 /**
@@ -14,6 +16,7 @@ public class WorldClock {
 	private ArrayList<LocationVO> locations = new ArrayList<LocationVO>();
 	
 	private WorldClock(){
+		
 	}
 	
 	private static WorldClock instance;
@@ -26,6 +29,14 @@ public class WorldClock {
 	
 	public ArrayList<LocationVO> getMyLocations(){
 		return locations;
+	}
+	
+	public String getCitiesString(){
+		String c = "";
+		for(int i=0; i<locations.size(); i++){
+			c+=locations.get(i).cityName+"|";
+		}
+		return c;
 	}
 	
 	public void addLocation(LocationVO l){

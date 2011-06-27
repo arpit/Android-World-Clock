@@ -24,6 +24,7 @@ public class LocationVO {
 	private String[] citiesInTimeZone;
 	private String timeZoneId;
 	
+	public boolean initialized = false;
 
 	public LocationVO(){
 	}
@@ -35,6 +36,11 @@ public class LocationVO {
 		String cities = timezone.split("\\) ")[1];
 		citiesInTimeZone = cities.split(", ");
 		
+	}
+	
+	public void initialize(){
+		this.dateTimeZone = DateTimeZone.forID(this.getTimeZone().getID());
+		this.initialized = true;
 	}
 	
 	public void setTimeZoneDisplayName(String s){

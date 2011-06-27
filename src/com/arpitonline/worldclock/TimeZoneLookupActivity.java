@@ -35,7 +35,7 @@ public class TimeZoneLookupActivity extends ListActivity {
 	    setListAdapter(new CountriesAdapter(this, R.layout.search_result_item, searchResults,R.layout.search_result_item));
 	    
 	    TimeZoneLookupService.DB_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()+"/com.arpitonline.worldclock/";
-		lookup = new TimeZoneLookupService(this);
+		lookup = TimeZoneLookupService.getInstance(this);
 		  
 	    // Get the intent, verify the action and get the query
 	    Intent intent = getIntent();
@@ -59,9 +59,7 @@ public class TimeZoneLookupActivity extends ListActivity {
 				}
 				else{
 					
-					DateTimeZone dtz = DateTimeZone.forID(tz.getID());
-					location.dateTimeZone = dtz; 
-					
+					location.initialize();
 					WorldClock.getInstance().addLocation(location);
 					
 					addTimeZone(location.toString());

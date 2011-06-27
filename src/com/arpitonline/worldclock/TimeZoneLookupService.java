@@ -22,7 +22,7 @@ public class TimeZoneLookupService extends DatabaseHelper {
 	public static final String KEY_TIMEZONE_DISPLAY_NAME = "display_name";
 	public static final String KEY_TIMEZONE_ID = "timezone_id";
 	
-	public TimeZoneLookupService(Context c){
+	private TimeZoneLookupService(Context c){
 		 
 		  super(c, "world_time.db");
 		  try {
@@ -37,6 +37,14 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		  	throw(sqle);
 		  }
 		
+	}
+	
+	private static TimeZoneLookupService instance;
+	public static TimeZoneLookupService getInstance(Context c){
+		if(instance == null){
+			instance = new TimeZoneLookupService(c);
+		}
+		return instance;
 	}
 	
 	public ArrayList<LocationVO> getTimeZoneForCity(String s){

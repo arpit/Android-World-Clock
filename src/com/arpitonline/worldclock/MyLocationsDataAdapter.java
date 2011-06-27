@@ -37,7 +37,7 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
         }
         
         DateTime dateTime = o.getDateTime();
-        LocalTime time = o.getTime();
+        LocalTime time = dateTime.toLocalTime();
         
         TextView cityTF = (TextView) v.findViewById(R.id.cityTF);
         cityTF.setText(o.cityName);                            
