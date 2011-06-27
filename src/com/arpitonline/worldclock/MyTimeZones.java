@@ -14,6 +14,9 @@ import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.ViewGroup.LayoutParams;
@@ -28,6 +31,8 @@ public class MyTimeZones extends ListActivity {
 	
 	private static final String PREF_LOCATION_FILE_NAME = "savedLocations";
 	private static final String PREF_KEY = "locations";
+	
+	private MyLocationsDataAdapter adapter;
 	
 	@Override
 	public void onAttachedToWindow() {
@@ -83,7 +88,7 @@ public class MyTimeZones extends ListActivity {
 			  Toast.makeText(this, "Added "+addedLocation, Toast.LENGTH_SHORT).show();
 		  }
 	  }
-	  MyLocationsDataAdapter adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, WorldClock.getInstance().getMyLocations(), 
+	  adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, WorldClock.getInstance().getMyLocations(), 
 			  R.layout.world_list_item);
 	  setListAdapter(adapter);
 	  
@@ -93,6 +98,41 @@ public class MyTimeZones extends ListActivity {
 	     
 	    }
 	  });
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.my_locations_menu, menu);
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+		Log.i(WorldClock.WORLD_CLOCK, "menu item clicked");
+		
+	    switch (item.getItemId()) {
+	    case R.id.exit:
+	    	Log.i(WorldClock.WORLD_CLOCK, "finishing");
+	        finish();
+	        return true;
+	    case R.id.about:
+	    	Log.i(WorldClock.WORLD_CLOCK, "menu:About");
+	        // send to arpitonline.com
+	        return true;
+	    case R.id.clear:
+	    	Log.i(WorldClock.WORLD_CLOCK, "menu:clear");
+	    	//WorldClock.getInstance().getMyLocations().clear();
+	    	adapter.clear();
+	    	SharedPreferences prefs = getSharedPreferences(PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
+	  	  	Editor e = prefs.edit();
+	  	  	e.putString(PREF_KEY, "");
+	  	  	e.commit();
+	  	  	return true;
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
 	}
 	
 	private View buildHeader(){

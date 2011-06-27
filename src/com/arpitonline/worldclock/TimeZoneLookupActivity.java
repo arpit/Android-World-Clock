@@ -24,21 +24,27 @@ public class TimeZoneLookupActivity extends ListActivity {
 	
 	private TimeZoneLookupService lookup;
 	private ArrayList<LocationVO> searchResults = new ArrayList<LocationVO>();
-	
+	private CountriesAdapter searchAdapter;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    //setContentView(R.layout.search);
 	    Log.i(WorldClock.WORLD_CLOCK, "------beginning search-----"); 
-	    
-	    setListAdapter(new CountriesAdapter(this, R.layout.search_result_item, searchResults,R.layout.search_result_item));
+	    searchAdapter = new CountriesAdapter(this, R.layout.search_result_item, searchResults,R.layout.search_result_item);
+	    setListAdapter(searchAdapter);
 	    
 	    TimeZoneLookupService.DB_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()+"/com.arpitonline.worldclock/";
 		lookup = TimeZoneLookupService.getInstance(this);
 		  
 	    // Get the intent, verify the action and get the query
-	    Intent intent = getIntent();
+		Intent intent = getIntent();
+		onNewIntent(intent);
+	}
+	
+	@Override 
+	protected void onNewIntent(Intent intent){
+		searchAdapter.clear();
 	    if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 	      String query = intent.getStringExtra(SearchManager.QUERY);
 	      lookupTimeZone(query);
@@ -74,6 +80,7 @@ public class TimeZoneLookupActivity extends ListActivity {
 		Intent intent = new Intent(this, MyTimeZones.class);
 		intent.putExtra("locationAdded",s );
 		startActivity(intent);
+		finish();
 	}
 	
 	private void lookupTimeZone(String s){
