@@ -3,6 +3,8 @@ package com.arpitonline.worldclock;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TimeZone;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.joda.time.DateTimeZone;
 
@@ -13,6 +15,8 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,6 +37,7 @@ public class MyTimeZones extends ListActivity {
 	private static final String PREF_KEY = "locations";
 	
 	private MyLocationsDataAdapter adapter;
+	private ListView lv;
 	
 	@Override
 	public void onAttachedToWindow() {
@@ -49,7 +54,7 @@ public class MyTimeZones extends ListActivity {
 	  
 	  requestWindowFeature(Window.FEATURE_NO_TITLE);
 	  
-	  ListView lv = getListView();
+	  lv = getListView();
 	  lv.addHeaderView(buildHeader());
 	  lv.setTextFilterEnabled(true);
 	  
@@ -98,7 +103,55 @@ public class MyTimeZones extends ListActivity {
 	     
 	    }
 	  });
+	  
+	  /*final Handler myHandler = new Handler(){
+		  public void handleMessag(Message msg) {
+			  	Log.i(WorldClock.WORLD_CLOCK, "<updating UI>");
+				adapter.notifyDataSetChanged();
+		  }
+	  };
+	  
+	  
+	  TimerTask task = new TimerTask(){
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				ArrayList<LocationVO> aList = WorldClock.getInstance().getMyLocations();
+				for(int i=0; i<aList.size(); i++){
+					LocationVO vo = aList.get(i);
+					//vo.updateTime();
+					Log.i(WorldClock.WORLD_CLOCK, "=> "+vo.getFormattedTime());
+				}
+				myHandler.sendEmptyMessage(1);
+			}
+	  };*/
+	  
+	  final Handler handler = new Handler(); 
+	  final Runnable doUpdateView = new Runnable() { 
+	    public void run() {
+	    	Log.i(WorldClock.WORLD_CLOCK, "<update UI>");
+	    	
+	    	ArrayList<LocationVO> aList = WorldClock.getInstance().getMyLocations();
+			for(int i=0; i<aList.size(); i++){
+				LocationVO vo = aList.get(i);
+				//vo.updateTime();
+				Log.i(WorldClock.WORLD_CLOCK, "=> "+vo.getFormattedTime());
+			}
+	    	adapter.notifyDataSetChanged();
+	    } 
+	  }; 
+
+	  TimerTask myTimerTask = new TimerTask() { 
+	    public void run() { 
+	        handler.post(doUpdateView); 
+	    } 
+	  };
+	  
+	  Timer t = new Timer();
+	  t.scheduleAtFixedRate(myTimerTask, 0, 60000); 
 	}
+	
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,6 +192,4 @@ public class MyTimeZones extends ListActivity {
 		View v = View.inflate(this, R.layout.listview_header, null);
 		return v;
 	}
-	
-	
 }
