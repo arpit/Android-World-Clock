@@ -104,28 +104,6 @@ public class MyTimeZones extends ListActivity {
 	    }
 	  });
 	  
-	  /*final Handler myHandler = new Handler(){
-		  public void handleMessag(Message msg) {
-			  	Log.i(WorldClock.WORLD_CLOCK, "<updating UI>");
-				adapter.notifyDataSetChanged();
-		  }
-	  };
-	  
-	  
-	  TimerTask task = new TimerTask(){
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				ArrayList<LocationVO> aList = WorldClock.getInstance().getMyLocations();
-				for(int i=0; i<aList.size(); i++){
-					LocationVO vo = aList.get(i);
-					//vo.updateTime();
-					Log.i(WorldClock.WORLD_CLOCK, "=> "+vo.getFormattedTime());
-				}
-				myHandler.sendEmptyMessage(1);
-			}
-	  };*/
-	  
 	  final Handler handler = new Handler(); 
 	  final Runnable doUpdateView = new Runnable() { 
 	    public void run() {
