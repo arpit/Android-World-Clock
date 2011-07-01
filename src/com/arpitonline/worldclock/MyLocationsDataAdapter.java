@@ -61,7 +61,7 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
 			bg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.night_bg);
 		}
 		else{
-			bg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.day2_bg);
+			bg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.day_bg);
 		}
 		
 		ImageView img = (ImageView)v.findViewById(R.id.backgroundImage);

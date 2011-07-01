@@ -2,28 +2,21 @@ package com.arpitonline.worldclock;
 	
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.joda.time.DateTimeZone;
-
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -55,6 +48,7 @@ public class MyTimeZones extends ListActivity {
 	  requestWindowFeature(Window.FEATURE_NO_TITLE);
 	  
 	  lv = getListView();
+	  
 	  lv.addHeaderView(buildHeader());
 	  lv.setTextFilterEnabled(true);
 	  

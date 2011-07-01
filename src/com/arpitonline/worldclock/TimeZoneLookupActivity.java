@@ -34,7 +34,7 @@ public class TimeZoneLookupActivity extends ListActivity {
 	    searchAdapter = new CountriesAdapter(this, R.layout.search_result_item, searchResults,R.layout.search_result_item);
 	    setListAdapter(searchAdapter);
 	    
-	    TimeZoneLookupService.DB_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()+"/com.arpitonline.worldclock/";
+	    //TimeZoneLookupService.DB_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()+"/com.arpitonline.worldclock/";
 		lookup = TimeZoneLookupService.getInstance(this);
 		  
 	    // Get the intent, verify the action and get the query
