@@ -17,6 +17,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -97,6 +101,7 @@ public class MyTimeZones extends ListActivity {
 	     
 	    }
 	  });
+	  
 	  
 	  final Handler handler = new Handler(); 
 	  final Runnable doUpdateView = new Runnable() { 
