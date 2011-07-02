@@ -17,10 +17,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
-import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -61,6 +57,7 @@ public class MyTimeZones extends ListActivity {
 	  
 	  
 	  String[] cities = locations.split("\\|");
+	  Log.i(WorldClock.WORLD_CLOCK, "cities => "+cities.length ); 
 	  
 	  //Toast.makeText(this, "Read locations:("+cities.length+")"+locations, Toast.LENGTH_LONG).show();
 	  
@@ -107,13 +104,7 @@ public class MyTimeZones extends ListActivity {
 	  final Runnable doUpdateView = new Runnable() { 
 	    public void run() {
 	    	Log.i(WorldClock.WORLD_CLOCK, "<update UI>");
-	    	
-	    	ArrayList<LocationVO> aList = WorldClock.getInstance().getMyLocations();
-			for(int i=0; i<aList.size(); i++){
-				LocationVO vo = aList.get(i);
-				//vo.updateTime();
-				Log.i(WorldClock.WORLD_CLOCK, "=> "+vo.getFormattedTime());
-			}
+	    	MyLocationsDataAdapter.INTRO_ANIMATION_ENABLED = false;
 	    	adapter.notifyDataSetChanged();
 	    } 
 	  }; 
@@ -125,7 +116,7 @@ public class MyTimeZones extends ListActivity {
 	  };
 	  
 	  Timer t = new Timer();
-	  t.scheduleAtFixedRate(myTimerTask, 0, 60000); 
+	  t.scheduleAtFixedRate(myTimerTask, 60000, 60000); 
 	}
 	
 	
