@@ -12,11 +12,13 @@ import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -31,6 +33,8 @@ public class MyTimeZones extends ListActivity {
 	
 	private MyLocationsDataAdapter adapter;
 	private ListView lv;
+	private String[] menuItems = new String[]{"Remove"};
+    
 	
 	@Override
 	public void onAttachedToWindow() {
@@ -99,6 +103,8 @@ public class MyTimeZones extends ListActivity {
 	    }
 	  });
 	  
+	  registerForContextMenu(lv);
+	  
 	  
 	  final Handler handler = new Handler(); 
 	  final Runnable doUpdateView = new Runnable() { 
@@ -154,6 +160,38 @@ public class MyTimeZones extends ListActivity {
 	    default:
 	        return super.onOptionsItemSelected(item);
 	    }
+	}
+	
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+		if (v == this.getListView()) {
+			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+			LocationVO loc = WorldClock.getInstance().getMyLocations().get(info.position-1);
+			menu.setHeaderTitle(loc.cityName);
+			// info.position -1 since the header actually counts as position 0
+			for(int i=0; i<menuItems.length; i++){
+		    	menu.add(Menu.NONE, i, i, menuItems[i]);
+		    }
+		}
+	}
+	
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+		int menuItemIndex = item.getItemId();
+		if(menuItemIndex==0){
+			LocationVO loc = WorldClock.getInstance().getMyLocations().get(info.position-1);
+			WorldClock.getInstance().getMyLocations().remove(loc);
+			
+			SharedPreferences prefs = getSharedPreferences(PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
+			Editor edit = prefs.edit();
+			edit.putString(PREF_KEY,WorldClock.getInstance().getCitiesString());
+			edit.commit();
+			
+			adapter.notifyDataSetChanged();
+			
+		}
+		return true;
 	}
 	
 	private View buildHeader(){

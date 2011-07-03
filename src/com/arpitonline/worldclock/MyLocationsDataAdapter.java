@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import com.arpitonline.utils.MathUtils;
 import com.arpitonline.worldclock.models.LocationVO;
 
-public class MyLocationsDataAdapter extends CountriesAdapter{
+public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnCreateContextMenuListener{
 	
 	public static boolean INTRO_ANIMATION_ENABLED = true;
 	
@@ -43,6 +44,8 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
         if (v == null) {
             LayoutInflater vi = (LayoutInflater)(getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE));
             v = vi.inflate(renderer, null);
+            v.setOnCreateContextMenuListener(this);
+      	  
         }
         
         DateTime dateTime = o.getDateTime();
@@ -79,10 +82,6 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
 		
 		final ImageView celestial = (ImageView)v.findViewById(R.id.celestial);
 		celestial.setImageDrawable(celestialImg);
-		
-		//ScrollView sc = (ScrollView)v.findViewById(R.id.scrollview);
-		//int pos = (int)(100);
-		//sc.scrollTo(-pos, 0);
 		
 		Log.i(WorldClock.WORLD_CLOCK, "intro animation enabled? "+INTRO_ANIMATION_ENABLED);
 		if(INTRO_ANIMATION_ENABLED ){
@@ -133,7 +132,7 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
 	private void doRotationAnimation(ImageView celestial){
 		RotateAnimation r =  new RotateAnimation(0, 40, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		r.setFillBefore(true);
-		r.setDuration(5000);
+		r.setDuration(2000);
 		r.setRepeatCount(Animation.INFINITE);
 		r.setRepeatMode(Animation.REVERSE);
 		
@@ -141,4 +140,10 @@ public class MyLocationsDataAdapter extends CountriesAdapter{
 		celestial.setAnimation(r);
 		
 	}
+	
+
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+     // empty implementation
+    }
+	
 }
