@@ -23,6 +23,7 @@ public final class R {
         public static final int rounded_corner_translucent_black=0x7f020005;
         public static final int search_icon=0x7f020006;
         public static final int sun=0x7f020007;
+        public static final int timely=0x7f020008;
     }
     public static final class id {
         public static final int about=0x7f08000b;

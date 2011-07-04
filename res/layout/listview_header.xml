@@ -3,19 +3,17 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
        	android:background="@drawable/black_gradient"
         >
-        <TextView
+        <ImageView
                 android:id="@+id/tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ddd"
-                android:textSize="22dp"
-                android:text="Clockly"
+               	android:src="@drawable/timely"
                 android:gravity="left"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 />
        <ImageButton 
        				android:id="@+id/search_button"
@@ -23,6 +21,6 @@
       				android:layout_width="50dp"
       				android:layout_height="50dp" 
       				android:layout_alignParentRight="true"
-      				android:background="#4f4f4f"
+      				android:background="#444444"
       				/>        
 </RelativeLayout>
