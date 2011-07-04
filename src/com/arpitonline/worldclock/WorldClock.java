@@ -2,8 +2,6 @@ package com.arpitonline.worldclock;
 
 import java.util.ArrayList;
 
-import android.content.Context;
-
 import com.arpitonline.worldclock.models.LocationVO;
 
 /**

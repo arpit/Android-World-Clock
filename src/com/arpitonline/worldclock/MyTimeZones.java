@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -89,7 +91,6 @@ public class MyTimeZones extends ListActivity {
 			  Editor edit = prefs.edit();
 			  edit.putString(PREF_KEY,WorldClock.getInstance().getCitiesString());
 			  edit.commit();
-			  Toast.makeText(this, "Added "+addedLocation, Toast.LENGTH_SHORT).show();
 		  }
 	  }
 	  adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, WorldClock.getInstance().getMyLocations(), 
@@ -196,6 +197,15 @@ public class MyTimeZones extends ListActivity {
 	
 	private View buildHeader(){
 		View v = View.inflate(this, R.layout.listview_header, null);
+		ImageButton btn = (ImageButton)v.findViewById(R.id.search_button);
+		btn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				onSearchRequested();
+				
+			}
+		});
 		return v;
 	}
 }

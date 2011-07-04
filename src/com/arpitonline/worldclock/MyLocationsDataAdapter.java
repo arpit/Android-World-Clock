@@ -84,7 +84,7 @@ public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnC
 		celestial.setImageDrawable(celestialImg);
 		
 		Log.i(WorldClock.WORLD_CLOCK, "intro animation enabled? "+INTRO_ANIMATION_ENABLED);
-		if(INTRO_ANIMATION_ENABLED ){
+		if(true ){
 			
 			RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)celestial.getLayoutParams();
 			params.rightMargin = MathUtils.randRange(25, 50);
@@ -131,8 +131,8 @@ public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnC
 	
 	private void doRotationAnimation(ImageView celestial){
 		RotateAnimation r =  new RotateAnimation(0, 40, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-		r.setFillBefore(true);
-		r.setDuration(2000);
+		r.setDuration((MathUtils.randRange(4, 8)/2)*1000);
+		//r.setStartTime(Animation.START_ON_FIRST_FRAME+10000);
 		r.setRepeatCount(Animation.INFINITE);
 		r.setRepeatMode(Animation.REVERSE);
 		

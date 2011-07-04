@@ -21,21 +21,23 @@ public final class R {
         public static final int moon=0x7f020003;
         public static final int night_bg=0x7f020004;
         public static final int rounded_corner_translucent_black=0x7f020005;
-        public static final int sun=0x7f020006;
+        public static final int search_icon=0x7f020006;
+        public static final int sun=0x7f020007;
     }
     public static final class id {
-        public static final int about=0x7f08000a;
-        public static final int backgroundImage=0x7f080006;
-        public static final int celestial=0x7f080007;
-        public static final int cityTF=0x7f080003;
-        public static final int clear=0x7f08000b;
-        public static final int countryTF=0x7f080004;
-        public static final int currentTimeTF=0x7f080008;
-        public static final int dayTF=0x7f080009;
-        public static final int exit=0x7f08000c;
-        public static final int imageView1=0x7f080001;
-        public static final int linearLayout1=0x7f080002;
-        public static final int scrollview=0x7f080005;
+        public static final int about=0x7f08000b;
+        public static final int backgroundImage=0x7f080007;
+        public static final int celestial=0x7f080008;
+        public static final int cityTF=0x7f080004;
+        public static final int clear=0x7f08000c;
+        public static final int countryTF=0x7f080005;
+        public static final int currentTimeTF=0x7f080009;
+        public static final int dayTF=0x7f08000a;
+        public static final int exit=0x7f08000d;
+        public static final int imageView1=0x7f080002;
+        public static final int linearLayout1=0x7f080003;
+        public static final int scrollview=0x7f080006;
+        public static final int search_button=0x7f080001;
         public static final int tv=0x7f080000;
     }
     public static final class layout {
