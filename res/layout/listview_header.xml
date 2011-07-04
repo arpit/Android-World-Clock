@@ -13,7 +13,7 @@
                	android:src="@drawable/timely"
                 android:gravity="left"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 />
        <ImageButton 
        				android:id="@+id/search_button"

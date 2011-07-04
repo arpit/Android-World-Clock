@@ -3,26 +3,17 @@
 	android:layout_height="120px"
  	android:layout_width="fill_parent"
  	>
- 	
-	<ScrollView
-		android:id="@+id/scrollview"
-		android:layout_width="fill_parent"
-		android:layout_height="120px"
-		android:layout_gravity="left"
-		android:background="#ff0000"
-		>
-		
-			<ImageView android:id="@+id/backgroundImage"
-					   android:layout_width="572px"
-					   android:layout_height="120px"
-					   android:layout_gravity="left"
-					   android:padding = "0dp"
-					   android:layout_margin="0dp"
-					   android:scaleType="centerCrop"
-					    
-		/>
-	</ScrollView>
 	
+	<ImageView android:id="@+id/backgroundImage"
+		   android:layout_width="wrap_content"
+		   android:layout_height="wrap_content"
+		   android:layout_gravity="left"
+		   android:padding = "0dp"
+		   android:layout_margin="0dp"
+		   android:scaleType="centerCrop"
+		    
+		/>
+
 	<ImageView 
 		android:id="@+id/celestial"
 		android:src="@drawable/moon"

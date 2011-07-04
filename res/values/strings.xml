@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Timekeeper</string>
+    <string name="app_name">Timely</string>
     <string name="search_hint">Search cities</string>
     <string name="clear_all">Clear All</string>
     <string name="exit">Exit</string>
