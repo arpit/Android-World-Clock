@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     private void copyDataBase() throws IOException{
-    	Log.i(WorldClock.WORLD_CLOCK, "[copying database]");
+    	Log.i(TimelyApp.WORLD_CLOCK, "[copying database]");
     	File f = new File(DB_PATH);
     	f.mkdirs();
     	

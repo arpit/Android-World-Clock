@@ -28,7 +28,7 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		  try {
 			  createDataBase();
 		  }catch (IOException ioe) {
-			Log.e(WorldClock.WORLD_CLOCK, "> error creating database");
+			Log.e(TimelyApp.WORLD_CLOCK, "> error creating database");
 		  }
 
 		  try {
@@ -52,7 +52,7 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		try{
 		c = theDatabase.query("data", new String[] {KEY_CITY, KEY_TIMEZONE, KEY_COUNTRY, KEY_TIMEZONE_DISPLAY_NAME, KEY_TIMEZONE_ID},KEY_CITY+" like '%"+s+"%';", null, null, null, null, null);
 		}catch(Exception e){
-			Log.e(WorldClock.WORLD_CLOCK, "ERROR: "+e.getMessage());
+			Log.e(TimelyApp.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
 			return null;
 		}
 		

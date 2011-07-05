@@ -6,11 +6,6 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.LocalTime;
 
-import com.arpitonline.worldclock.FlickrActivity;
-import com.arpitonline.worldclock.WorldClock;
-
-import android.util.Log;
-
 public class LocationVO {
 	
 	public String cityName;
@@ -56,7 +51,6 @@ public class LocationVO {
 	}
 	
 	public TimeZone getTimeZone(){
-		Log.i(WorldClock.WORLD_CLOCK, "TimezoneID: "+timeZoneId);
 		if(timeZoneId==null|| timeZoneId.length() ==0){
 			return null;
 		}

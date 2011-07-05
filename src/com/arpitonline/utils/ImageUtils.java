@@ -1,19 +1,15 @@
 package com.arpitonline.utils;
 
-import java.io.FilterInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-
-import com.arpitonline.worldclock.FlickrActivity;
-import com.arpitonline.worldclock.WorldClock;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.util.Log;
+
+import com.arpitonline.worldclock.TimelyApp;
 
 public class ImageUtils {
 	public static Bitmap getBitmapForImageAtURL(String fileUrl) {
@@ -30,7 +26,7 @@ public class ImageUtils {
           bmImg = BitmapFactory.decodeStream(new SanInputStream(is));
           conn.disconnect();
 		}catch(Exception ex){
-			Log.e(WorldClock.WORLD_CLOCK, "Image to Bitmap Error "+ex.getClass().getName());
+			Log.e(TimelyApp.WORLD_CLOCK, "Image to Bitmap Error "+ex.getClass().getName());
 		}
 		return bmImg;
      }

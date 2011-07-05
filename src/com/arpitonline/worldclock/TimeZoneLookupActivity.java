@@ -7,9 +7,7 @@ import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -27,7 +25,6 @@ public class TimeZoneLookupActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    Log.i(WorldClock.WORLD_CLOCK, "------beginning search-----"); 
 	    searchAdapter = new CountriesAdapter(this, R.layout.search_result_item, searchResults,R.layout.search_result_item);
 	    setListAdapter(searchAdapter);
 	    
