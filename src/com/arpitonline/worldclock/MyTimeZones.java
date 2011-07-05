@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.app.Application;
 import android.app.ListActivity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -30,13 +31,19 @@ import com.arpitonline.worldclock.models.LocationVO;
 
 public class MyTimeZones extends ListActivity {
 	
-	private static final String PREF_LOCATION_FILE_NAME = "savedLocations";
-	private static final String PREF_KEY = "locations";
-	
 	private MyLocationsDataAdapter adapter;
 	private ListView lv;
 	private String[] menuItems = new String[]{"Remove"};
     
+	private Timer t;
+	private Handler handler;
+	final Runnable doUpdateView = new Runnable() { 
+	    public void run() {
+	    	Log.i(WorldClock.WORLD_CLOCK, "<update UI>");
+	    	MyLocationsDataAdapter.INTRO_ANIMATION_ENABLED = false;
+	    	adapter.notifyDataSetChanged();
+	    } 
+	  };
 	
 	@Override
 	public void onAttachedToWindow() {
@@ -58,12 +65,7 @@ public class MyTimeZones extends ListActivity {
 	  lv.addHeaderView(buildHeader());
 	  lv.setTextFilterEnabled(true);
 	  
-	  SharedPreferences prefs = getSharedPreferences(PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
-	  String locations = prefs.getString(PREF_KEY, "");
 	  
-	  
-	  String[] cities = locations.split("\\|");
-	  Log.i(WorldClock.WORLD_CLOCK, "cities => "+cities.length ); 
 	  
 	  //Toast.makeText(this, "Read locations:("+cities.length+")"+locations, Toast.LENGTH_LONG).show();
 	  
@@ -72,24 +74,19 @@ public class MyTimeZones extends ListActivity {
 	  if (extras == null) {
 		// looks like first run!
 		
-		if(locations != ""){
-			
-			TimeZoneLookupService service =TimeZoneLookupService.getInstance(this);
-			for(int i=0; i<cities.length; i++){
-				LocationVO res = service.getTimeZoneForCity(cities[i]).get(0);
-				res.initialize();
-				WorldClock.getInstance().addLocation(res);
-			}
-		}
+		
 		//return;
 	  }
 	  else{
 		  String addedLocation = extras.getString("locationAdded");
 		  if(addedLocation != null && addedLocation.length() > 0 && 
-				  Arrays.asList(cities).indexOf(addedLocation)==-1){
+				 WorldClock.getInstance().getCitiesString().indexOf(addedLocation)==-1){
+			  
+			  SharedPreferences prefs = getSharedPreferences(WorldClock.PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
+			  String locations = prefs.getString(WorldClock.PREF_KEY, "");
 			  
 			  Editor edit = prefs.edit();
-			  edit.putString(PREF_KEY,WorldClock.getInstance().getCitiesString());
+			  edit.putString(WorldClock.PREF_KEY,WorldClock.getInstance().getCitiesString());
 			  edit.commit();
 		  }
 	  }
@@ -107,26 +104,24 @@ public class MyTimeZones extends ListActivity {
 	  registerForContextMenu(lv);
 	  
 	  
-	  final Handler handler = new Handler(); 
-	  final Runnable doUpdateView = new Runnable() { 
-	    public void run() {
-	    	Log.i(WorldClock.WORLD_CLOCK, "<update UI>");
-	    	MyLocationsDataAdapter.INTRO_ANIMATION_ENABLED = false;
-	    	adapter.notifyDataSetChanged();
-	    } 
-	  }; 
-
-	  TimerTask myTimerTask = new TimerTask() { 
-	    public void run() { 
-	        handler.post(doUpdateView); 
-	    } 
-	  };
+	  handler = new Handler(); 
+	  createUpdateTimer();
 	  
-	  Timer t = new Timer();
-	  t.scheduleAtFixedRate(myTimerTask, 60000, 60000); 
+	  
 	}
 	
+	private void createUpdateTimer(){
+		TimerTask updateTimerTask = new TimerTask() { 
+			public void run() { 
+		        handler.post(doUpdateView); 
+		    } 
+		  };
+		
+		t = new Timer();
+		t.scheduleAtFixedRate(updateTimerTask, 60000, 60000); 
+	}
 	
+	 
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -153,9 +148,9 @@ public class MyTimeZones extends ListActivity {
 	    	Log.i(WorldClock.WORLD_CLOCK, "menu:clear");
 	    	//WorldClock.getInstance().getMyLocations().clear();
 	    	adapter.clear();
-	    	SharedPreferences prefs = getSharedPreferences(PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
+	    	SharedPreferences prefs = getSharedPreferences(WorldClock.PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
 	  	  	Editor e = prefs.edit();
-	  	  	e.putString(PREF_KEY, "");
+	  	  	e.putString(WorldClock.PREF_KEY, "");
 	  	  	e.commit();
 	  	  	return true;
 	    default:
@@ -163,6 +158,27 @@ public class MyTimeZones extends ListActivity {
 	    }
 	}
 	
+	
+	@Override 
+	protected void onStop(){
+		super.onStop();
+		Log.i(WorldClock.WORLD_CLOCK, "Activity stopping");
+		t.cancel();
+		t = null;
+	}
+	
+	@Override 
+	protected void onResume(){
+		super.onResume();
+		Log.i(WorldClock.WORLD_CLOCK, "Activity resuming");
+		if(t == null){
+			try{
+				createUpdateTimer();
+			}catch(Exception e){
+				Log.e(WorldClock.WORLD_CLOCK, e.getMessage());
+			}
+		}
+	}
 	
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
@@ -184,9 +200,9 @@ public class MyTimeZones extends ListActivity {
 			LocationVO loc = WorldClock.getInstance().getMyLocations().get(info.position-1);
 			WorldClock.getInstance().getMyLocations().remove(loc);
 			
-			SharedPreferences prefs = getSharedPreferences(PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
+			SharedPreferences prefs = getSharedPreferences(WorldClock.PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
 			Editor edit = prefs.edit();
-			edit.putString(PREF_KEY,WorldClock.getInstance().getCitiesString());
+			edit.putString(WorldClock.PREF_KEY,WorldClock.getInstance().getCitiesString());
 			edit.commit();
 			
 			adapter.notifyDataSetChanged();
