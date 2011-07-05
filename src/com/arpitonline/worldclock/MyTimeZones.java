@@ -1,14 +1,9 @@
 package com.arpitonline.worldclock;
 	
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.app.Application;
 import android.app.ListActivity;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,9 +17,7 @@ import android.view.Window;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.arpitonline.worldclock.models.LocationVO;
@@ -39,7 +32,7 @@ public class MyTimeZones extends ListActivity {
 	private Handler handler;
 	final Runnable doUpdateView = new Runnable() { 
 	    public void run() {
-	    	Log.i(WorldClock.WORLD_CLOCK, "<update UI>");
+	    	Log.i(TimelyApp.WORLD_CLOCK, "<update UI>");
 	    	MyLocationsDataAdapter.INTRO_ANIMATION_ENABLED = false;
 	    	adapter.notifyDataSetChanged();
 	    } 
@@ -56,7 +49,7 @@ public class MyTimeZones extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  
-	  Log.i(WorldClock.WORLD_CLOCK, "onCreateFired");
+	  Log.i(TimelyApp.WORLD_CLOCK, "onCreateFired");
 	  
 	  requestWindowFeature(Window.FEATURE_NO_TITLE);
 	  
@@ -64,33 +57,8 @@ public class MyTimeZones extends ListActivity {
 	  
 	  lv.addHeaderView(buildHeader());
 	  lv.setTextFilterEnabled(true);
-	  
-	  
-	  
-	  //Toast.makeText(this, "Read locations:("+cities.length+")"+locations, Toast.LENGTH_LONG).show();
-	  
-	  
-	  Bundle extras = getIntent().getExtras();
-	  if (extras == null) {
-		// looks like first run!
-		
-		
-		//return;
-	  }
-	  else{
-		  String addedLocation = extras.getString("locationAdded");
-		  if(addedLocation != null && addedLocation.length() > 0 && 
-				 WorldClock.getInstance().getCitiesString().indexOf(addedLocation)==-1){
-			  
-			  SharedPreferences prefs = getSharedPreferences(WorldClock.PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
-			  String locations = prefs.getString(WorldClock.PREF_KEY, "");
-			  
-			  Editor edit = prefs.edit();
-			  edit.putString(WorldClock.PREF_KEY,WorldClock.getInstance().getCitiesString());
-			  edit.commit();
-		  }
-	  }
-	  adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, WorldClock.getInstance().getMyLocations(), 
+	
+	  adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, ((TimelyApp)getApplication()).getMyLocations(), 
 			  R.layout.world_list_item);
 	  setListAdapter(adapter);
 	  
@@ -102,12 +70,8 @@ public class MyTimeZones extends ListActivity {
 	  });
 	  
 	  registerForContextMenu(lv);
-	  
-	  
 	  handler = new Handler(); 
 	  createUpdateTimer();
-	  
-	  
 	}
 	
 	private void createUpdateTimer(){
@@ -133,25 +97,22 @@ public class MyTimeZones extends ListActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
-		Log.i(WorldClock.WORLD_CLOCK, "menu item clicked");
+		Log.i(TimelyApp.WORLD_CLOCK, "menu item clicked");
 		
 	    switch (item.getItemId()) {
 	    case R.id.exit:
-	    	Log.i(WorldClock.WORLD_CLOCK, "finishing");
+	    	Log.i(TimelyApp.WORLD_CLOCK, "finishing");
 	        finish();
 	        return true;
 	    case R.id.about:
-	    	Log.i(WorldClock.WORLD_CLOCK, "menu:About");
+	    	Log.i(TimelyApp.WORLD_CLOCK, "menu:About");
 	        // send to arpitonline.com
 	        return true;
 	    case R.id.clear:
-	    	Log.i(WorldClock.WORLD_CLOCK, "menu:clear");
+	    	Log.i(TimelyApp.WORLD_CLOCK, "menu:clear");
 	    	//WorldClock.getInstance().getMyLocations().clear();
 	    	adapter.clear();
-	    	SharedPreferences prefs = getSharedPreferences(WorldClock.PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
-	  	  	Editor e = prefs.edit();
-	  	  	e.putString(WorldClock.PREF_KEY, "");
-	  	  	e.commit();
+	    	((TimelyApp)getApplication()).savePreferences();
 	  	  	return true;
 	    default:
 	        return super.onOptionsItemSelected(item);
@@ -162,7 +123,6 @@ public class MyTimeZones extends ListActivity {
 	@Override 
 	protected void onStop(){
 		super.onStop();
-		Log.i(WorldClock.WORLD_CLOCK, "Activity stopping");
 		t.cancel();
 		t = null;
 	}
@@ -170,12 +130,11 @@ public class MyTimeZones extends ListActivity {
 	@Override 
 	protected void onResume(){
 		super.onResume();
-		Log.i(WorldClock.WORLD_CLOCK, "Activity resuming");
 		if(t == null){
 			try{
 				createUpdateTimer();
 			}catch(Exception e){
-				Log.e(WorldClock.WORLD_CLOCK, e.getMessage());
+				Log.e(TimelyApp.WORLD_CLOCK, e.getMessage());
 			}
 		}
 	}
@@ -184,7 +143,7 @@ public class MyTimeZones extends ListActivity {
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		if (v == this.getListView()) {
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-			LocationVO loc = WorldClock.getInstance().getMyLocations().get(info.position-1);
+			LocationVO loc = ((TimelyApp)getApplication()).getMyLocations().get(info.position-1);
 			menu.setHeaderTitle(loc.cityName);
 			// info.position -1 since the header actually counts as position 0
 			for(int i=0; i<menuItems.length; i++){
@@ -197,16 +156,9 @@ public class MyTimeZones extends ListActivity {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 		int menuItemIndex = item.getItemId();
 		if(menuItemIndex==0){
-			LocationVO loc = WorldClock.getInstance().getMyLocations().get(info.position-1);
-			WorldClock.getInstance().getMyLocations().remove(loc);
-			
-			SharedPreferences prefs = getSharedPreferences(WorldClock.PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
-			Editor edit = prefs.edit();
-			edit.putString(WorldClock.PREF_KEY,WorldClock.getInstance().getCitiesString());
-			edit.commit();
-			
+			LocationVO loc = ((TimelyApp)getApplication()).getMyLocations().get(info.position-1);
+			 ((TimelyApp)getApplication()).removeLocation(loc);
 			adapter.notifyDataSetChanged();
-			
 		}
 		return true;
 	}

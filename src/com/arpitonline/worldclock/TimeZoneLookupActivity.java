@@ -63,7 +63,7 @@ public class TimeZoneLookupActivity extends ListActivity {
 				else{
 					
 					location.initialize();
-					WorldClock.getInstance().addLocation(location);
+					((TimelyApp)getApplication()).addLocation(location);
 					
 					addTimeZone(location.toString());
 					
