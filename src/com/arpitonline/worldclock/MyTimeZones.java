@@ -4,7 +4,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -100,13 +102,16 @@ public class MyTimeZones extends ListActivity {
 		Log.i(TimelyApp.WORLD_CLOCK, "menu item clicked");
 		
 	    switch (item.getItemId()) {
-	    case R.id.exit:
-	    	Log.i(TimelyApp.WORLD_CLOCK, "finishing");
-	        finish();
+	    case R.id.feedback_menuitem:
+	    	Intent gotoFeedback = new Intent(Intent.ACTION_VIEW, 
+	    			Uri.parse("http://www.arpitonline.com/worldclock/about/"));
+	    	startActivity(gotoFeedback);
 	        return true;
 	    case R.id.about:
 	    	Log.i(TimelyApp.WORLD_CLOCK, "menu:About");
-	        // send to arpitonline.com
+	    	Intent gotoAbout = new Intent(Intent.ACTION_VIEW, 
+	    			Uri.parse("http://www.arpitonline.com/worldclock/about/"));
+	    	startActivity(gotoAbout);
 	        return true;
 	    case R.id.clear:
 	    	Log.i(TimelyApp.WORLD_CLOCK, "menu:clear");

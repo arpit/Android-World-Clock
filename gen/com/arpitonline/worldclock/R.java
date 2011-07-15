@@ -34,7 +34,7 @@ public final class R {
         public static final int countryTF=0x7f080005;
         public static final int currentTimeTF=0x7f080008;
         public static final int dayTF=0x7f080009;
-        public static final int exit=0x7f08000c;
+        public static final int feedback_menuitem=0x7f08000c;
         public static final int imageView1=0x7f080002;
         public static final int linearLayout1=0x7f080003;
         public static final int search_button=0x7f080001;
@@ -50,10 +50,10 @@ public final class R {
         public static final int my_locations_menu=0x7f070000;
     }
     public static final class string {
-        public static final int about=0x7f060004;
+        public static final int about=0x7f060003;
         public static final int app_name=0x7f060000;
         public static final int clear_all=0x7f060002;
-        public static final int exit=0x7f060003;
+        public static final int feedback=0x7f060004;
         public static final int search_hint=0x7f060001;
     }
     public static final class xml {
