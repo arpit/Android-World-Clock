@@ -3,28 +3,35 @@ package com.arpitonline.worldclock;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.arpitonline.worldclock.models.LocationVO;
 
-public class MyTimeZones extends ListActivity {
+public class MyLocationsActivity extends ListActivity {
 	
 	private MyLocationsDataAdapter adapter;
 	private ListView lv;
@@ -35,7 +42,6 @@ public class MyTimeZones extends ListActivity {
 	final Runnable doUpdateView = new Runnable() { 
 	    public void run() {
 	    	Log.i(TimelyApp.WORLD_CLOCK, "<update UI>");
-	    	MyLocationsDataAdapter.INTRO_ANIMATION_ENABLED = false;
 	    	adapter.notifyDataSetChanged();
 	    } 
 	  };
@@ -45,6 +51,8 @@ public class MyTimeZones extends ListActivity {
 	    super.onAttachedToWindow();
 	    Window window = getWindow();
 	    window.setFormat(PixelFormat.RGBA_8888);
+	    Log.i(TimelyApp.WORLD_CLOCK, "onAttachedToWindow fired");
+	   
 	}
 	
 	@Override
@@ -104,14 +112,40 @@ public class MyTimeZones extends ListActivity {
 	    switch (item.getItemId()) {
 	    case R.id.feedback_menuitem:
 	    	Intent gotoFeedback = new Intent(Intent.ACTION_VIEW, 
-	    			Uri.parse("http://www.arpitonline.com/worldclock/about/"));
+	    			Uri.parse(getString(R.string.feedback_url)));
 	    	startActivity(gotoFeedback);
 	        return true;
 	    case R.id.about:
 	    	Log.i(TimelyApp.WORLD_CLOCK, "menu:About");
-	    	Intent gotoAbout = new Intent(Intent.ACTION_VIEW, 
-	    			Uri.parse("http://www.arpitonline.com/worldclock/about/"));
-	    	startActivity(gotoAbout);
+	    	
+	    	
+	    	LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+	    	View layout = inflater.inflate(R.layout.about_dialog,
+	    	                               (ViewGroup) findViewById(R.id.layout_root));
+
+	    	
+	    	TextView t1 = (TextView) layout.findViewById(R.id.by);
+	    	t1.setMovementMethod(LinkMovementMethod.getInstance());
+	    	t1.setText(Html.fromHtml(getString(R.string.developed_by)));
+	    	
+	    	TextView t2 = (TextView) layout.findViewById(R.id.feedback_at);
+	    	t2.setMovementMethod(LinkMovementMethod.getInstance());
+	    	t2.setText(Html.fromHtml(getString(R.string.feedback_at)));
+	    	
+	    	TextView t3 = (TextView) layout.findViewById(R.id.source_at);
+	    	t3.setMovementMethod(LinkMovementMethod.getInstance());
+	    	t3.setText(Html.fromHtml(getString(R.string.source_at)));
+	       
+	    	
+	    	
+	    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	    	builder.setView(layout);
+	    	builder.setPositiveButton("Cool", null);
+	    	AlertDialog alert = builder.create();
+	    	alert.setTitle("About Timely");
+	    	
+	    	alert.show();
+	    	
 	        return true;
 	    case R.id.clear:
 	    	Log.i(TimelyApp.WORLD_CLOCK, "menu:clear");
@@ -124,7 +158,7 @@ public class MyTimeZones extends ListActivity {
 	    }
 	}
 	
-	
+		
 	@Override 
 	protected void onStop(){
 		super.onStop();

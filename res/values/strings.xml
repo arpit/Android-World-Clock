@@ -5,5 +5,9 @@
     <string name="clear_all">Clear All</string>
     <string name="about">About</string>
     <string name="feedback">Feedback</string>
+    <string name="feedback_url">http://arpitonline.com/timely/feedback/</string>
     
+    <string name="developed_by"><![CDATA[By <a href="http://twitter.com/arpit>Arpit Mathur</a>]]></string>
+    <string name="source_at"><![CDATA[The source of this app is released under the MIT license and can be found on <a href="https://github.com/arpit/Android-World-Clock>Github</a>]]></string>
+    <string name="feedback_at"><![CDATA[Feedback/Comments/Bugs can be sent <a href="http://arpitonline.com/timely/feedback/>here</a>]]></string>
 </resources>

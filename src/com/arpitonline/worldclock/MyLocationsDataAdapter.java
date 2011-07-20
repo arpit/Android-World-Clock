@@ -83,15 +83,12 @@ public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnC
 		final ImageView celestial = (ImageView)v.findViewById(R.id.celestial);
 		celestial.setImageDrawable(celestialImg);
 		
-		Log.i(TimelyApp.WORLD_CLOCK, "intro animation enabled? "+INTRO_ANIMATION_ENABLED);
-		if(true ){
+		//Log.i(TimelyApp.WORLD_CLOCK, "intro animation enabled? "+INTRO_ANIMATION_ENABLED);
+		if(INTRO_ANIMATION_ENABLED == true){
 			
 			RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)celestial.getLayoutParams();
 			params.rightMargin = MathUtils.randRange(25, 50);
 			celestial.setLayoutParams(params);
-			
-			Log.i(TimelyApp.WORLD_CLOCK, "rightMargin: "+params.rightMargin);
-			
 			
 			TranslateAnimation anim = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0,
 					Animation.RELATIVE_TO_SELF, 10.0f, Animation.RELATIVE_TO_SELF, 0);
@@ -116,13 +113,14 @@ public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnC
 				
 				@Override
 				public void onAnimationEnd(Animation animation) {
+					 MyLocationsDataAdapter.INTRO_ANIMATION_ENABLED = false;
 					doRotationAnimation(celestial);
 				}
 			});
 			
 			celestial.setAnimation(anim);
 		}else{
-			doRotationAnimation(celestial);
+			//doRotationAnimation(celestial);
 		}
 		
 		return v;

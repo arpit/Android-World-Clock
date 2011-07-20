@@ -71,7 +71,7 @@ public class TimeZoneLookupActivity extends ListActivity {
 	}
 	
 	private void addTimeZone(String s){
-		Intent intent = new Intent(this, MyTimeZones.class);
+		Intent intent = new Intent(this, MyLocationsActivity.class);
 		intent.putExtra("locationAdded",s );
 		startActivity(intent);
 		finish();

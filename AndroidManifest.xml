@@ -17,7 +17,7 @@
     			 android:debuggable="true"
     			 android:name="TimelyApp">
         
-        <activity android:name="MyTimeZones"
+        <activity android:name="MyLocationsActivity"
                   android:label="@string/app_name"
                   android:launchMode="singleTask"
                   android:screenOrientation="portrait">
