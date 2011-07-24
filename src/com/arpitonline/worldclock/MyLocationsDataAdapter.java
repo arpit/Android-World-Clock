@@ -1,6 +1,7 @@
 package com.arpitonline.worldclock;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
@@ -28,6 +29,7 @@ import com.arpitonline.worldclock.models.LocationVO;
 public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnCreateContextMenuListener{
 	
 	public static boolean INTRO_ANIMATION_ENABLED = true;
+	private ArrayList<LocationVO> previouslyAnimated = new ArrayList<LocationVO>();
 	
 	public MyLocationsDataAdapter (Activity activity, int textViewResourceId, ArrayList<LocationVO> items, int renderer){
 		 super(activity, textViewResourceId, items, renderer);
@@ -84,7 +86,10 @@ public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnC
 		celestial.setImageDrawable(celestialImg);
 		
 		//Log.i(TimelyApp.WORLD_CLOCK, "intro animation enabled? "+INTRO_ANIMATION_ENABLED);
-		if(INTRO_ANIMATION_ENABLED == true){
+		//if(INTRO_ANIMATION_ENABLED == true){
+		if(previouslyAnimated.contains(o)== false){
+			
+			previouslyAnimated.add(o);
 			
 			RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)celestial.getLayoutParams();
 			params.rightMargin = MathUtils.randRange(25, 50);
@@ -137,6 +142,10 @@ public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnC
 		celestial.clearAnimation();
 		celestial.setAnimation(r);
 		
+	}
+	
+	public void removeFromAnimatedObjects(LocationVO loc){
+		this.previouslyAnimated.remove(loc);
 	}
 	
 

@@ -197,7 +197,8 @@ public class MyLocationsActivity extends ListActivity {
 		if(menuItemIndex==0){
 			LocationVO loc = ((TimelyApp)getApplication()).getMyLocations().get(info.position-1);
 			 ((TimelyApp)getApplication()).removeLocation(loc);
-			adapter.notifyDataSetChanged();
+			 adapter.removeFromAnimatedObjects(loc);
+			 adapter.notifyDataSetChanged();
 		}
 		return true;
 	}
