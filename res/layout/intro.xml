@@ -1,0 +1,12 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        >
+		<ImageView 
+				android:id="@+id/intro_image"
+		 		android:src="@drawable/intro"
+		 		android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		 />
+ </LinearLayout>
