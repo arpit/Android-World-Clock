@@ -52,7 +52,7 @@ public class TimelyApp extends Application {
 	
 	public void addLocation(LocationVO l){
 		for(LocationVO v: locations){
-			if(v.cityName == l.cityName){
+			if(v.cityName.equals(l.cityName)){
 				return;
 			}
 		}
@@ -61,11 +61,7 @@ public class TimelyApp extends Application {
 	}
 	
 	public void removeLocation(LocationVO loc){
-		for(LocationVO v: locations){
-			if(v == loc){
-				locations.remove(v);
-			}
-		}
+		locations.remove(loc);
 		savePreferences();
 	}
 	
