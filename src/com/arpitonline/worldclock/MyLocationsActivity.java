@@ -41,7 +41,6 @@ public class MyLocationsActivity extends ListActivity {
 	private Handler handler;
 	final Runnable doUpdateView = new Runnable() { 
 	    public void run() {
-	    	Log.i(TimelyApp.WORLD_CLOCK, "<update UI>");
 	    	adapter.notifyDataSetChanged();
 	    } 
 	  };
@@ -51,16 +50,11 @@ public class MyLocationsActivity extends ListActivity {
 	    super.onAttachedToWindow();
 	    Window window = getWindow();
 	    window.setFormat(PixelFormat.RGBA_8888);
-	    Log.i(TimelyApp.WORLD_CLOCK, "onAttachedToWindow fired");
-	   
 	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
-	  
-	  Log.i(TimelyApp.WORLD_CLOCK, "onCreateFired");
-	  
 	  requestWindowFeature(Window.FEATURE_NO_TITLE);
 	  
 	  lv = getListView();
@@ -106,9 +100,6 @@ public class MyLocationsActivity extends ListActivity {
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
-		Log.i(TimelyApp.WORLD_CLOCK, "menu item clicked");
-		
 	    switch (item.getItemId()) {
 	    case R.id.feedback_menuitem:
 	    	Intent gotoFeedback = new Intent(Intent.ACTION_VIEW, 
@@ -116,7 +107,6 @@ public class MyLocationsActivity extends ListActivity {
 	    	startActivity(gotoFeedback);
 	        return true;
 	    case R.id.about:
-	    	Log.i(TimelyApp.WORLD_CLOCK, "menu:About");
 	    	
 	    	
 	    	LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -148,7 +138,6 @@ public class MyLocationsActivity extends ListActivity {
 	    	
 	        return true;
 	    case R.id.clear:
-	    	Log.i(TimelyApp.WORLD_CLOCK, "menu:clear");
 	    	//WorldClock.getInstance().getMyLocations().clear();
 	    	adapter.clear();
 	    	((TimelyApp)getApplication()).savePreferences();

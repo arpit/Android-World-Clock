@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.arpitonline.worldclock.models.LocationVO;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -15,6 +16,11 @@ public class TimeZoneLookupService extends DatabaseHelper {
 	
 	String storageDir = Environment.getExternalStorageDirectory().getAbsolutePath()+"/com.arpitonline.worldclock/";
 	
+	
+	public static final String CITY_NAME = SearchManager.SUGGEST_COLUMN_TEXT_1;
+	public static final String COUNTRY_NAME = SearchManager.SUGGEST_COLUMN_TEXT_2;
+	
+	public static final String _ID = "_id";
 	public static final String DATABASE_TABLE = "data";
 	public static final String KEY_CITY = "city";
 	public static final String KEY_COUNTRY= "country";
@@ -75,6 +81,38 @@ public class TimeZoneLookupService extends DatabaseHelper {
 			c.moveToNext();
 		}
 		return list;
-		
 	}
+	
+	 public LocationVO getLocationForId(String id){
+		 Cursor c ;
+		 try{
+			c = theDatabase.query("data", new String[] {KEY_CITY, KEY_TIMEZONE, KEY_COUNTRY, KEY_TIMEZONE_DISPLAY_NAME, KEY_TIMEZONE_ID},_ID+" = '"+id+"';", null, null, null, null, null);
+		 }catch(Exception e){
+				Log.e(TimelyApp.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
+				return null;
+		}
+		c.moveToFirst();
+		
+		LocationVO vo = new LocationVO();
+		vo.cityName = c.getString(0);
+		vo.countryName = c.getString(2);
+		vo.setTimezoneString(c.getString(1));
+		vo.setTimeZoneDisplayName(c.getString(3));
+		vo.setTimeZoneId(c.getString(4));
+		
+		return vo;
+		
+	 }
+	
+	 public Cursor getCursorForQuery(String query) {
+		Cursor c ;
+		try{
+			c = theDatabase.rawQuery("select _id, city AS "+SearchManager.SUGGEST_COLUMN_TEXT_1+", country AS "+SearchManager.SUGGEST_COLUMN_TEXT_2+", _id AS "+SearchManager.SUGGEST_COLUMN_INTENT_EXTRA_DATA+"  from data where city like '"+query+"%';", null);
+		}catch(Exception e){
+			Log.e(TimelyApp.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
+			return null;
+		}
+		Log.i(TimelyApp.WORLD_CLOCK, "query cursor result: "+c.getCount());
+		return c;
+	 }
 }
