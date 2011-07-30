@@ -11,7 +11,6 @@ import com.aetrion.flickr.FlickrException;
 import com.aetrion.flickr.REST;
 import com.aetrion.flickr.RequestContext;
 import com.aetrion.flickr.auth.Auth;
-import com.aetrion.flickr.auth.AuthInterface;
 import com.aetrion.flickr.auth.Permission;
 import com.aetrion.flickr.photos.Photo;
 import com.aetrion.flickr.photos.PhotoList;

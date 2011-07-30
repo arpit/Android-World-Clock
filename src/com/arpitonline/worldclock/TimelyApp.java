@@ -7,7 +7,6 @@ import com.arpitonline.worldclock.models.LocationVO;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.util.Log;
 
 public class TimelyApp extends Application {
 	
@@ -23,8 +22,10 @@ public class TimelyApp extends Application {
 		
 		prefs = getSharedPreferences(PREF_LOCATION_FILE_NAME, MODE_PRIVATE);
 		String locations = prefs.getString(PREF_KEY, "");
+		
+		// Note the cities length will be 1 even when the locations string is empty
+		// ( "" ) since splitting that will still return the empty string as is.
 		String[] cities = locations.split("\\|");
-		Log.i(WORLD_CLOCK, "cities => "+cities.length ); 
 		
 		if(locations != ""){
 			TimeZoneLookupService service =TimeZoneLookupService.getInstance(this);

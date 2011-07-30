@@ -4,7 +4,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.PixelFormat;

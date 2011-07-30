@@ -1,7 +1,6 @@
 package com.arpitonline.worldclock;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
@@ -9,7 +8,6 @@ import org.joda.time.LocalTime;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +19,6 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.RelativeLayout.LayoutParams;
 
 import com.arpitonline.utils.MathUtils;
 import com.arpitonline.worldclock.models.LocationVO;
