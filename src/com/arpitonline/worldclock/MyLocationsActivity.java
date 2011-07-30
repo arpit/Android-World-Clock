@@ -1,9 +1,11 @@
 package com.arpitonline.worldclock;
 	
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -14,6 +16,7 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -32,6 +36,7 @@ import com.arpitonline.worldclock.models.LocationVO;
 
 public class MyLocationsActivity extends ListActivity {
 	
+	private Dialog introDialog;
 	private MyLocationsDataAdapter adapter;
 	private ListView lv;
 	private String[] menuItems = new String[]{"Remove"};
@@ -61,9 +66,34 @@ public class MyLocationsActivity extends ListActivity {
 	  lv.addHeaderView(buildHeader());
 	  lv.setTextFilterEnabled(true);
 	
-	  adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, ((TimelyApp)getApplication()).getMyLocations(), 
+	  ArrayList<LocationVO> locations = ((TimelyApp)getApplication()).getMyLocations();
+	  adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, 
+			  locations, 
 			  R.layout.world_list_item);
 	  setListAdapter(adapter);
+	  
+	  if(locations.size() == 0){
+		  if(introDialog == null){
+			  //, android.R.style.Theme_Translucent_NoTitleBar
+			  introDialog = new Dialog(this, android.R.style.Theme_Panel);
+			  introDialog.setContentView(R.layout.intro);
+			  
+			  Window window = introDialog.getWindow();
+	          window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+	                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
+	            window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+	            //window.setGravity(Gravity.BOTTOM);
+	            
+			  
+		  }
+		  introDialog.show();
+	  }
+	  else{
+		  if(introDialog != null){
+			  introDialog.dismiss();
+			  introDialog = null;
+		  }
+	  }
 	  
 	  lv.setOnItemClickListener(new OnItemClickListener() {
 	    public void onItemClick(AdapterView<?> parent, View view,
@@ -198,6 +228,10 @@ public class MyLocationsActivity extends ListActivity {
 			
 			@Override
 			public void onClick(View v) {
+				if(introDialog != null){
+					introDialog.dismiss();
+					introDialog = null;
+				}
 				onSearchRequested();
 				
 			}
