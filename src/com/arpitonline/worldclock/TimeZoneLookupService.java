@@ -80,6 +80,8 @@ public class TimeZoneLookupService extends DatabaseHelper {
 			list.add(vo);
 			c.moveToNext();
 		}
+		
+		c.close();
 		return list;
 	}
 	
@@ -99,6 +101,8 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		vo.setTimezoneString(c.getString(1));
 		vo.setTimeZoneDisplayName(c.getString(3));
 		vo.setTimeZoneId(c.getString(4));
+		
+		c.close();
 		
 		return vo;
 		
