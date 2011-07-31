@@ -7,7 +7,6 @@ import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -49,11 +48,9 @@ public class TimeZoneLookupActivity extends ListActivity {
     		
 	    	Bundle b = intent.getExtras();
 	    	String searchId = b.getString(SearchManager.EXTRA_DATA_KEY);
-	    	Log.i(TimelyPiece.WORLD_CLOCK, "id:  "+searchId);
 	    	
 	    	LocationVO location = lookup.getLocationForId(searchId);
 	    	if(location != null){
-	    		Log.i(TimelyPiece.WORLD_CLOCK, "adding location: "+location.cityName);
 	    		location.initialize();
 	    		((TimelyPiece)getApplication()).addLocation(location);
 	    	}

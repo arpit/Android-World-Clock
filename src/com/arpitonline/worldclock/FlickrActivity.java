@@ -38,7 +38,6 @@ public class FlickrActivity extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        Log.i(TimelyPiece.WORLD_CLOCK, "begin App");
         
         try{
         	flickr = new Flickr(key, secret, new REST());
