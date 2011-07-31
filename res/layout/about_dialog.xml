@@ -10,28 +10,28 @@
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:textSize="16dp"
-              android:text="Version: beta-1"
-              android:layout_marginTop="10dp"
+              android:text="Version: 1"
+              android:layout_marginTop="5dp"
               android:textColor="#333" />
               
     <TextView android:id="@+id/by"
     		  android:textSize="16dp"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:layout_marginTop="10dp"
+              android:layout_marginTop="5dp"
               android:textColor="#333"/>
               
     <TextView android:id="@+id/feedback_at"
     		  android:textSize="16dp"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:layout_marginTop="10dp"
+              android:layout_marginTop="5dp"
               android:textColor="#333"/>
     <TextView android:id="@+id/source_at"
     		  android:textSize="16dp"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:layout_marginTop="10dp"
+              android:layout_marginTop="5dp"
               android:textColor="#333"
               />
 </LinearLayout>

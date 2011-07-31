@@ -8,6 +8,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
@@ -153,6 +155,16 @@ public class MyLocationsActivity extends ListActivity {
 	    	TextView t3 = (TextView) layout.findViewById(R.id.source_at);
 	    	t3.setMovementMethod(LinkMovementMethod.getInstance());
 	    	t3.setText(Html.fromHtml(getString(R.string.source_at)));
+	    	
+	    	TextView versionTxt =  (TextView) layout.findViewById(R.id.version);
+	    	
+	    	try{
+	    		PackageManager manager = this.getPackageManager();
+	    		PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
+	    		versionTxt.setText("Version: "+ info.versionName);
+	    	}catch(Exception e){
+	    		versionTxt.setText("x");
+	    	}
 	       
 	    	
 	    	
@@ -160,7 +172,7 @@ public class MyLocationsActivity extends ListActivity {
 	    	builder.setView(layout);
 	    	builder.setPositiveButton("Cool", null);
 	    	AlertDialog alert = builder.create();
-	    	alert.setTitle("About Timely");
+	    	alert.setTitle("About "+getString(R.string.app_name));
 	    	
 	    	alert.show();
 	    	
