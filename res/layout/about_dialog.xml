@@ -10,7 +10,7 @@
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:textSize="16dp"
-              android:text="Version: 1.0"
+              android:text="Version: beta-1"
               android:layout_marginTop="10dp"
               android:textColor="#333" />
               
