@@ -47,7 +47,7 @@ public class CitySearchSuggestionProvider extends ContentProvider {
 	
 	 private Cursor getSuggestions(String query) {	
 	      query = query.toLowerCase();
-	      Log.i(TimelyApp.WORLD_CLOCK, "=> doing search for "+query);
+	      Log.i(TimelyPiece.WORLD_CLOCK, "=> doing search for "+query);
 	      return service.getCursorForQuery(query);
 	    }
 	

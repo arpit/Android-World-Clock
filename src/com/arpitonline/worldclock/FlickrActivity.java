@@ -38,12 +38,12 @@ public class FlickrActivity extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        Log.i(TimelyApp.WORLD_CLOCK, "begin App");
+        Log.i(TimelyPiece.WORLD_CLOCK, "begin App");
         
         try{
         	flickr = new Flickr(key, secret, new REST());
         }catch(ParserConfigurationException ex){
-        	Log.e(TimelyApp.WORLD_CLOCK, "ParserConfigException creating Flickr service: "+ex.getStackTrace());
+        	Log.e(TimelyPiece.WORLD_CLOCK, "ParserConfigException creating Flickr service: "+ex.getStackTrace());
         }
         requestContext = RequestContext.getRequestContext();
        
@@ -65,33 +65,33 @@ public class FlickrActivity extends Activity {
     	
     	try{
     		PhotoList photos = photoIf.search(params, 5, 0);
-    		Log.i(TimelyApp.WORLD_CLOCK, "photos size > "+photos.size() );
+    		Log.i(TimelyPiece.WORLD_CLOCK, "photos size > "+photos.size() );
     		for(int i=0; i<photos.size(); i++){
     			Photo p = (Photo)photos.get(i);
-    			Log.i(TimelyApp.WORLD_CLOCK, p.getUrl());
+    			Log.i(TimelyPiece.WORLD_CLOCK, p.getUrl());
     		}
     		
     		ImageView img = (ImageView)findViewById(R.id.imageView1);
         	Photo p = (Photo)photos.get(0);
         	
         	String photoURL = p.getMediumUrl();
-        	Log.i(TimelyApp.WORLD_CLOCK, "<>"+photoURL);
+        	Log.i(TimelyPiece.WORLD_CLOCK, "<>"+photoURL);
         	
         	Bitmap bmp = ImageUtils.getBitmapForImageAtURL(photoURL);
-        	Log.i(TimelyApp.WORLD_CLOCK, "<=>"+bmp);
+        	Log.i(TimelyPiece.WORLD_CLOCK, "<=>"+bmp);
         	
         	img.setImageBitmap(bmp);
         	
     		
     	}
     	catch(FlickrException fex){
-    		Log.e(TimelyApp.WORLD_CLOCK, "Flickr Exception > "+fex.getMessage());
+    		Log.e(TimelyPiece.WORLD_CLOCK, "Flickr Exception > "+fex.getMessage());
     	}
     	catch(IOException fex){
-    		Log.e(TimelyApp.WORLD_CLOCK, "IOException > "+fex.getMessage());
+    		Log.e(TimelyPiece.WORLD_CLOCK, "IOException > "+fex.getMessage());
     	}
     	catch(SAXException fex){
-    		Log.e(TimelyApp.WORLD_CLOCK, "SAXException > "+fex.getMessage());
+    		Log.e(TimelyPiece.WORLD_CLOCK, "SAXException > "+fex.getMessage());
     	}
     	
     	

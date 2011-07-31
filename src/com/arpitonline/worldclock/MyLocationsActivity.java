@@ -67,7 +67,7 @@ public class MyLocationsActivity extends ListActivity {
 	  lv.addHeaderView(buildHeader());
 	  lv.setTextFilterEnabled(true);
 	
-	  ArrayList<LocationVO> locations = ((TimelyApp)getApplication()).getMyLocations();
+	  ArrayList<LocationVO> locations = ((TimelyPiece)getApplication()).getMyLocations();
 	  adapter = new MyLocationsDataAdapter(this, R.layout.world_list_item, 
 			  locations, 
 			  R.layout.world_list_item);
@@ -180,7 +180,7 @@ public class MyLocationsActivity extends ListActivity {
 	    case R.id.clear:
 	    	//WorldClock.getInstance().getMyLocations().clear();
 	    	adapter.clear();
-	    	((TimelyApp)getApplication()).savePreferences();
+	    	((TimelyPiece)getApplication()).savePreferences();
 	  	  	return true;
 	    default:
 	        return super.onOptionsItemSelected(item);
@@ -202,7 +202,7 @@ public class MyLocationsActivity extends ListActivity {
 			try{
 				createUpdateTimer();
 			}catch(Exception e){
-				Log.e(TimelyApp.WORLD_CLOCK, e.getMessage());
+				Log.e(TimelyPiece.WORLD_CLOCK, e.getMessage());
 			}
 		}
 	}
@@ -211,7 +211,7 @@ public class MyLocationsActivity extends ListActivity {
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		if (v == this.getListView()) {
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-			LocationVO loc = ((TimelyApp)getApplication()).getMyLocations().get(info.position-1);
+			LocationVO loc = ((TimelyPiece)getApplication()).getMyLocations().get(info.position-1);
 			menu.setHeaderTitle(loc.cityName);
 			// info.position -1 since the header actually counts as position 0
 			for(int i=0; i<menuItems.length; i++){
@@ -224,8 +224,8 @@ public class MyLocationsActivity extends ListActivity {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 		int menuItemIndex = item.getItemId();
 		if(menuItemIndex==0){
-			LocationVO loc = ((TimelyApp)getApplication()).getMyLocations().get(info.position-1);
-			 ((TimelyApp)getApplication()).removeLocation(loc);
+			LocationVO loc = ((TimelyPiece)getApplication()).getMyLocations().get(info.position-1);
+			 ((TimelyPiece)getApplication()).removeLocation(loc);
 			 adapter.removeFromAnimatedObjects(loc);
 			 adapter.notifyDataSetChanged();
 		}

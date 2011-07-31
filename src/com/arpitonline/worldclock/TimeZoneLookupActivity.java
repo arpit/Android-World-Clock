@@ -49,13 +49,13 @@ public class TimeZoneLookupActivity extends ListActivity {
     		
 	    	Bundle b = intent.getExtras();
 	    	String searchId = b.getString(SearchManager.EXTRA_DATA_KEY);
-	    	Log.i(TimelyApp.WORLD_CLOCK, "id:  "+searchId);
+	    	Log.i(TimelyPiece.WORLD_CLOCK, "id:  "+searchId);
 	    	
 	    	LocationVO location = lookup.getLocationForId(searchId);
 	    	if(location != null){
-	    		Log.i(TimelyApp.WORLD_CLOCK, "adding location: "+location.cityName);
+	    		Log.i(TimelyPiece.WORLD_CLOCK, "adding location: "+location.cityName);
 	    		location.initialize();
-	    		((TimelyApp)getApplication()).addLocation(location);
+	    		((TimelyPiece)getApplication()).addLocation(location);
 	    	}
 	    	
 	    	Intent backIntent = new Intent(this, MyLocationsActivity.class);
@@ -86,7 +86,7 @@ public class TimeZoneLookupActivity extends ListActivity {
 				else{
 					
 					location.initialize();
-					((TimelyApp)getApplication()).addLocation(location);
+					((TimelyPiece)getApplication()).addLocation(location);
 					
 					addTimeZone(location.toString());
 					

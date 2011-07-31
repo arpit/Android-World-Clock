@@ -34,7 +34,7 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		  try {
 			  createDataBase();
 		  }catch (IOException ioe) {
-			Log.e(TimelyApp.WORLD_CLOCK, "> error creating database");
+			Log.e(TimelyPiece.WORLD_CLOCK, "> error creating database");
 		  }
 
 		  try {
@@ -58,7 +58,7 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		try{
 		c = theDatabase.query("data", new String[] {KEY_CITY, KEY_TIMEZONE, KEY_COUNTRY, KEY_TIMEZONE_DISPLAY_NAME, KEY_TIMEZONE_ID},KEY_CITY+" like '%"+s+"%';", null, null, null, null, null);
 		}catch(Exception e){
-			Log.e(TimelyApp.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
+			Log.e(TimelyPiece.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
 			return null;
 		}
 		
@@ -90,7 +90,7 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		 try{
 			c = theDatabase.query("data", new String[] {KEY_CITY, KEY_TIMEZONE, KEY_COUNTRY, KEY_TIMEZONE_DISPLAY_NAME, KEY_TIMEZONE_ID},_ID+" = '"+id+"';", null, null, null, null, null);
 		 }catch(Exception e){
-				Log.e(TimelyApp.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
+				Log.e(TimelyPiece.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
 				return null;
 		}
 		c.moveToFirst();
@@ -113,10 +113,10 @@ public class TimeZoneLookupService extends DatabaseHelper {
 		try{
 			c = theDatabase.rawQuery("select _id, city AS "+SearchManager.SUGGEST_COLUMN_TEXT_1+", country AS "+SearchManager.SUGGEST_COLUMN_TEXT_2+", _id AS "+SearchManager.SUGGEST_COLUMN_INTENT_EXTRA_DATA+"  from data where city like '"+query+"%';", null);
 		}catch(Exception e){
-			Log.e(TimelyApp.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
+			Log.e(TimelyPiece.WORLD_CLOCK, "Error getting Timezone for "+KEY_CITY+" : "+e.getMessage());
 			return null;
 		}
-		Log.i(TimelyApp.WORLD_CLOCK, "query cursor result: "+c.getCount());
+		Log.i(TimelyPiece.WORLD_CLOCK, "query cursor result: "+c.getCount());
 		return c;
 	 }
 }
