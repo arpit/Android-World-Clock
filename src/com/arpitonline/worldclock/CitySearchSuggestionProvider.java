@@ -28,19 +28,6 @@ public class CitySearchSuggestionProvider extends ContentProvider {
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
-		/*Log.i(TimelyApp.WORLD_CLOCK, "query >"+uri.toString());
-		Log.i(TimelyApp.WORLD_CLOCK, "path: "+uri.getPath());
-		switch(sURIMatcher.match(uri)){
-			case GET_CITY:
-				 if (selectionArgs == null) {
-					 throw new IllegalArgumentException(
-	                      "selectionArgs must be provided for the Uri: " + uri);
-				 }
-	             return getSuggestions(selectionArgs[0]);
-			default:
-				throw new IllegalArgumentException("Unknown Uri: " + uri);
-		}
-		*/
 		String query = uri.getLastPathSegment().toLowerCase();
 		return getSuggestions(query);
 	}

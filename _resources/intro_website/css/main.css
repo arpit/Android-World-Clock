@@ -1,0 +1,28 @@
+html{
+    background:#dfdfdf;
+}
+
+#content{
+    width:960px;
+    margin:0 auto;
+    background:white;
+}
+
+#header{
+    height:500px;
+    background-image: url("../images/Promo.png");
+}
+
+#coming_soon{
+    background:black;
+    padding:20px;
+    color:white;
+}
+
+a{
+    
+}
+
+a:hover{
+    
+}
