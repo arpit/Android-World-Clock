@@ -27,17 +27,17 @@ public final class R {
         public static final int timely=0x7f020009;
     }
     public static final class id {
-        public static final int about=0x7f080011;
-        public static final int backgroundImage=0x7f08000d;
+        public static final int about=0x7f080012;
+        public static final int backgroundImage=0x7f08000e;
         public static final int by=0x7f080002;
-        public static final int celestial=0x7f08000e;
+        public static final int celestial=0x7f08000f;
         public static final int cityTF=0x7f08000b;
-        public static final int clear=0x7f080012;
+        public static final int clear=0x7f080013;
         public static final int countryTF=0x7f08000c;
-        public static final int currentTimeTF=0x7f08000f;
-        public static final int dayTF=0x7f080010;
+        public static final int currentTimeTF=0x7f080010;
+        public static final int dayTF=0x7f080011;
         public static final int feedback_at=0x7f080003;
-        public static final int feedback_menuitem=0x7f080013;
+        public static final int feedback_menuitem=0x7f080014;
         public static final int imageView1=0x7f080009;
         public static final int intro_image=0x7f080006;
         public static final int layout_root=0x7f080000;
@@ -46,6 +46,7 @@ public final class R {
         public static final int source_at=0x7f080004;
         public static final int tv=0x7f080007;
         public static final int version=0x7f080001;
+        public static final int widget_add_button=0x7f08000d;
         public static final int widget_bttn=0x7f080005;
     }
     public static final class layout {
@@ -55,7 +56,8 @@ public final class R {
         public static final int listview_header=0x7f030003;
         public static final int main=0x7f030004;
         public static final int search_result_item=0x7f030005;
-        public static final int world_list_item=0x7f030006;
+        public static final int widget_config_footer=0x7f030006;
+        public static final int world_list_item=0x7f030007;
     }
     public static final class menu {
         public static final int my_locations_menu=0x7f070000;
