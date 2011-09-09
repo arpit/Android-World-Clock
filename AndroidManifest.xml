@@ -38,7 +38,13 @@
             	       android:resource="@xml/searchable"
             	       />
     	</activity>
-        
+    	
+    	<activity android:name=".WidgetConfigurationActivity">
+		    <intent-filter>
+		        <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+		    </intent-filter>
+		</activity>
+		        
         <provider android:name=".CitySearchSuggestionProvider"
                   android:authorities="com.arpitonline.worldclock.CitySearchSuggestionProvider" />
 		
