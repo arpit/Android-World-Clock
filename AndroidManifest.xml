@@ -41,6 +41,14 @@
         
         <provider android:name=".CitySearchSuggestionProvider"
                   android:authorities="com.arpitonline.worldclock.CitySearchSuggestionProvider" />
-
+		
+		<receiver android:name="TimePieceWidgetProvider" >
+    		<intent-filter>
+        		<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+    		</intent-filter>
+    		<meta-data android:name="android.appwidget.provider"
+               android:resource="@xml/world_time_widget_info" />
+		</receiver>
+		
     </application>
 </manifest>
