@@ -7,6 +7,12 @@ import java.util.TimerTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockListFragment;
@@ -18,6 +24,10 @@ public class MyLocationsFragment extends SherlockListFragment {
 	private Timer t;
 	private Handler handler;
 	private ListView lv;
+	
+	private String[] menuItems = new String[]{"Remove"};
+	
+	public static final String TAG = "MyLocationsFragment";
 	
 	final Runnable doUpdateView = new Runnable() {
 		public void run() {
@@ -70,7 +80,7 @@ public class MyLocationsFragment extends SherlockListFragment {
 //			}
 //		});
 //
-//		registerForContextMenu(lv);
+		registerForContextMenu(lv);
 		handler = new Handler();
 		createUpdateTimer();
 	}
@@ -104,6 +114,33 @@ public class MyLocationsFragment extends SherlockListFragment {
 		t = null;
 		super.onStop();
 
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+		if (v == this.getListView()) {
+			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+			ArrayList<LocationVO>locations = ((TimelyPiece)getActivity().getApplication()).getMyLocations();
+			Log.d(TAG, "=> locations size: "+locations.size()+", index: "+info.position);
+			LocationVO loc = locations.get(info.position);
+			menu.setHeaderTitle(loc.cityName);
+			for(int i=0; i<menuItems.length; i++){
+		    	menu.add(Menu.NONE, i, i, menuItems[i]);
+		    }
+		}
+	}
+	
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+		int menuItemIndex = item.getItemId();
+		if(menuItemIndex==0){
+			TimelyPiece app = ((TimelyPiece)getActivity().getApplication());
+			LocationVO loc = app.getMyLocations().get(info.position);
+			 app.removeLocation(loc);
+			 adapter.removeFromAnimatedObjects(loc);
+			 adapter.notifyDataSetChanged();
+		}
+		return true;
 	}
 
 }

@@ -27,8 +27,6 @@ public class MyLocationsActivity extends SherlockFragmentActivity {
 	private Dialog introDialog;
 	
 	
-	private String[] menuItems = new String[]{"Remove"};
-	
 	
 	
 	@Override
@@ -120,37 +118,5 @@ public class MyLocationsActivity extends SherlockFragmentActivity {
 	    default:
 	        return super.onOptionsItemSelected(item);
 	    }
-	}
-	
-		
-	
-	
-	
-	
-//	@Override
-//	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-//		if (v == this.getListView()) {
-//			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-//			LocationVO loc = ((TimelyPiece)getApplication()).getMyLocations().get(info.position-1);
-//			menu.setHeaderTitle(loc.cityName);
-//			// info.position -1 since the header actually counts as position 0
-//			for(int i=0; i<menuItems.length; i++){
-//		    	menu.add(Menu.NONE, i, i, menuItems[i]);
-//		    }
-//		}
-//	}
-	
-//	public boolean onContextItemSelected(MenuItem item) {
-//		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
-//		int menuItemIndex = item.getItemId();
-//		if(menuItemIndex==0){
-//			LocationVO loc = ((TimelyPiece)getApplication()).getMyLocations().get(info.position-1);
-//			 ((TimelyPiece)getApplication()).removeLocation(loc);
-//			 adapter.removeFromAnimatedObjects(loc);
-//			 adapter.notifyDataSetChanged();
-//		}
-//		return true;
-//	}
-	
-	
+	}	
 }
