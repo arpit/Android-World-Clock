@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-     <item android:id="@+id/about"
-         android:title="@string/about" />
-    <item android:id="@+id/clear"
-          android:title="@string/clear_all" />   
-   <item android:id="@+id/feedback_menuitem"
-          android:title="@string/feedback" />
+    <item
+        android:id="@+id/search_mi"
+        android:title="@string/search"
+        android:icon="@drawable/ic_action_search"
+        android:showAsAction="withText|always"/>
     
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"/>
+    <item
+        android:id="@+id/clear"
+        android:title="@string/clear_all"/>
+    <item
+        android:id="@+id/feedback_menuitem"
+        android:title="@string/feedback"/>
+
 </menu>

@@ -7,8 +7,6 @@ import java.util.TimerTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockListFragment;
@@ -33,7 +31,6 @@ public class MyLocationsFragment extends SherlockListFragment {
 		
 		lv = getListView();
 
-		lv.addHeaderView(buildHeader());
 		lv.setTextFilterEnabled(true);
 
 		ArrayList<LocationVO> locations = ((TimelyPiece) getActivity().getApplication())
@@ -107,24 +104,6 @@ public class MyLocationsFragment extends SherlockListFragment {
 		t = null;
 		super.onStop();
 
-	}
-	
-	private View buildHeader(){
-		View v = View.inflate(getActivity(), R.layout.listview_header, null);
-		ImageButton btn = (ImageButton)v.findViewById(R.id.search_button);
-		btn.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-//				if(introDialog != null){
-//					introDialog.dismiss();
-//					introDialog = null;
-//				}
-				getActivity().onSearchRequested();
-				
-			}
-		});
-		return v;
 	}
 
 }
