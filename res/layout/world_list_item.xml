@@ -1,6 +1,6 @@
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android" 
-	android:layout_height="120px"
+	android:layout_height="120dip"
  	android:layout_width="fill_parent"
  	>
 	
@@ -24,22 +24,22 @@
 		
 		/>
 		
-	<LinearLayout  
-		android:id="@+id/linearLayout1" 
-		android:layout_width="wrap_content"
-	 	android:layout_height="wrap_content"
-	 	android:orientation="vertical" 
-	 	android:layout_margin="15dp"
-	 	android:padding="15dp"
-	 	
-	 	android:layout_centerVertical="true"
-	 	android:background="@drawable/rounded_corner_translucent_black">
+	<LinearLayout
+	    android:id="@+id/linearLayout1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="5dp"
+	    android:orientation="vertical"
+	    android:padding="15dp" 
+	    android:background="#33000000">
 	 	
 	 	<TextView 
         	android:id="@+id/cityTF" 
         	android:layout_width="wrap_content" 
        	 	android:layout_height="wrap_content"
        	 	android:gravity="center"
+       	 	android:textColor="#ffffff"
+       	 	android:textSize="16dip"
        	 	android:text="test">
        	</TextView>
 	 		
@@ -48,20 +48,22 @@
         	android:layout_width="wrap_content" 
        	 	android:layout_height="wrap_content"
        	 	android:gravity="center"
-       	 	android:textSize="28px"
+       	 	android:textSize="28dp"
        	 	android:textColor="#ffffff"
        	 	android:layout_marginTop="-5px"
-       	 	android:textStyle="bold">
+       	 	android:textStyle="bold"
+       	 	android:text="2:00 pm">
        	</TextView>
-	 	
-	 	
-        <TextView 
-        	android:id="@+id/dayTF" 
-        	android:layout_width="wrap_content" 
-       	 	android:layout_height="wrap_content"
-       	 	android:gravity="center"
-       	 	android:layout_marginTop="-5px">
-       	</TextView>
+
+	 	<TextView
+	 	    android:id="@+id/dayTF"
+	 	    android:layout_width="wrap_content"
+	 	    android:layout_height="wrap_content"
+	 	    android:layout_marginTop="-5px"
+	 	    android:gravity="center"
+	 	    android:text="Thu"
+	 	    android:textColor="#ffffff"
+	 	    android:textSize="16dip" />
        	
     </LinearLayout>
 </RelativeLayout>

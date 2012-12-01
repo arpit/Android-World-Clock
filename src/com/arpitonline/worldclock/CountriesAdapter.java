@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.arpitonline.worldclock.models.LocationVO;
-import com.arpitonline.worldclock.R;
 
 public class CountriesAdapter extends ArrayAdapter<LocationVO> {
 
