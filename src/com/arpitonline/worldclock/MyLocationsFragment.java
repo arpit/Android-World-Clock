@@ -84,6 +84,11 @@ public class MyLocationsFragment extends SherlockListFragment {
 		handler = new Handler();
 		createUpdateTimer();
 	}
+	
+	public void clearLocations(){
+		adapter.clear();
+    	((TimelyPiece)getActivity().getApplication()).savePreferences();
+	}
 
 	private void createUpdateTimer() {
 		TimerTask updateTimerTask = new TimerTask() {

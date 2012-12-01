@@ -111,9 +111,8 @@ public class MyLocationsActivity extends SherlockFragmentActivity {
 	    	
 	        return true;
 	    case R.id.clear:
-	    	//WorldClock.getInstance().getMyLocations().clear();
-	    	//adapter.clear();
-	    	//((TimelyPiece)getApplication()).savePreferences();
+	    	MyLocationsFragment fragment = (MyLocationsFragment)getSupportFragmentManager().findFragmentById(R.id.my_locations);
+	    	fragment.clearLocations();
 	  	  	return true;
 	    default:
 	        return super.onOptionsItemSelected(item);
