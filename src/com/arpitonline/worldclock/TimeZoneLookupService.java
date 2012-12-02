@@ -60,7 +60,6 @@ public class TimeZoneLookupService extends DatabaseHelper {
 				app = (TimelyPiece)(((Activity)c).getApplication());
  			}
 			if(app != null && app.isFirstRunOfNewVersion()){
-				Log.d(TAG, "Force copy: setting value");
 				DatabaseHelper.FORCE_DATABASE_COPY = true;
 			}
 			instance = new TimeZoneLookupService(c);

@@ -11,7 +11,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 /**
  * Uses the method mentioned in the link below to copy a database thats packaged
@@ -40,15 +39,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     public void createDataBase() throws IOException{
     	boolean dbExist = checkDataBase();
-    	
-    	Log.d(TAG, "Force copy? "+FORCE_DATABASE_COPY);
-    	
     	if( !FORCE_DATABASE_COPY && dbExist ){
-    		Log.d(TAG, "No need to copy db");
+    		//Log.d(TAG, "No need to copy db");
     	}else{
     		this.getReadableDatabase();
         	try {
-        		Log.d(TAG, "Copying database");
+        		//Log.d(TAG, "Copying database");
     			copyDataBase();
     		} catch (IOException e) {
         		throw new Error("Error copying database");

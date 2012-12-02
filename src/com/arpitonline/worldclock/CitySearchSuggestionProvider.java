@@ -7,7 +7,6 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
-import android.util.Log;
 
 public class CitySearchSuggestionProvider extends ContentProvider {
 	
@@ -33,7 +32,6 @@ public class CitySearchSuggestionProvider extends ContentProvider {
 	
 	 private Cursor getSuggestions(String query) {	
 	      query = query.toLowerCase();
-	      Log.i(TimelyPiece.WORLD_CLOCK, "=> doing search for "+query);
 	      TimeZoneLookupService service = TimeZoneLookupService.getInstance(getContext());
 	      return service.getCursorForQuery(query);
 	    }

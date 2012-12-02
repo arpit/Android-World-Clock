@@ -19,7 +19,6 @@ public class TimelyPiece extends Application {
 	public static final String PREF_KEY = "locations";
 	
 	private static final String TAG = "TimelyPiece";
-	private static final String APPLICATION_PREFS = "TimepiecePrefs";
 	
 	private SharedPreferences prefs;
 	
@@ -77,11 +76,6 @@ public class TimelyPiece extends Application {
 		return _isFirstRun;
 		
     }
-	
-	private void doOnFirstRun(){
-		Log.d(TAG, "Setting Force copy");
-		DatabaseHelper.FORCE_DATABASE_COPY = true;
-	}
 	
 	private ArrayList<LocationVO> locations = new ArrayList<LocationVO>();
 	public ArrayList<LocationVO> getMyLocations(){
