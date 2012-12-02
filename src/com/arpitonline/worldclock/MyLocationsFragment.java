@@ -42,9 +42,15 @@ public class MyLocationsFragment extends SherlockListFragment {
 		lv = getListView();
 
 		lv.setTextFilterEnabled(true);
-
-		ArrayList<LocationVO> locations = ((TimelyPiece) getActivity().getApplication())
-				.getMyLocations();
+		
+		TimelyPiece app = (TimelyPiece) getActivity().getApplication();
+		
+		ArrayList<LocationVO> locations = app.getMyLocations();
+		
+		
+		
+		
+		
 		adapter = new MyLocationsDataAdapter(
 				(this.getActivity()),
 				R.layout.world_list_item, locations, R.layout.world_list_item);

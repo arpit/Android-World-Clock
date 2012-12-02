@@ -18,10 +18,9 @@ public class CitySearchSuggestionProvider extends ContentProvider {
 	private static final int GET_CITY = 1;
 	private static final UriMatcher sURIMatcher = buildUriMatcher();
 	
-	private TimeZoneLookupService service;
 	@Override
 	public boolean onCreate() {
-		service = TimeZoneLookupService.getInstance(getContext());
+		
 		return true;
 	}
 
@@ -35,6 +34,7 @@ public class CitySearchSuggestionProvider extends ContentProvider {
 	 private Cursor getSuggestions(String query) {	
 	      query = query.toLowerCase();
 	      Log.i(TimelyPiece.WORLD_CLOCK, "=> doing search for "+query);
+	      TimeZoneLookupService service = TimeZoneLookupService.getInstance(getContext());
 	      return service.getCursorForQuery(query);
 	    }
 	

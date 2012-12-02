@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -24,9 +23,11 @@ import android.util.Log;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 	
+	private static String TAG = "DatabaseHelper";
+	public static boolean FORCE_DATABASE_COPY = false;
+	
 	public static String DB_PATH = "/data/data/com.arpitonline.worldclock/databases/";
 	private String dbName = "world_time.db";
-	
 	
     protected SQLiteDatabase theDatabase; 
     private final Context context;
@@ -39,17 +40,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     public void createDataBase() throws IOException{
     	boolean dbExist = checkDataBase();
-    	if(dbExist){
-    		//do nothing - database already exist
+    	
+    	Log.d(TAG, "Force copy? "+FORCE_DATABASE_COPY);
+    	
+    	if( !FORCE_DATABASE_COPY && dbExist ){
+    		Log.d(TAG, "No need to copy db");
     	}else{
     		this.getReadableDatabase();
         	try {
+        		Log.d(TAG, "Copying database");
     			copyDataBase();
     		} catch (IOException e) {
         		throw new Error("Error copying database");
         	}
     	}
     }
+
     
     private boolean checkDataBase(){
     	SQLiteDatabase checkDB = null;

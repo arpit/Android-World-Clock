@@ -3,19 +3,20 @@ package com.arpitonline.worldclock;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.arpitonline.worldclock.models.LocationVO;
-
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.os.Environment;
 import android.util.Log;
+
+import com.arpitonline.worldclock.models.LocationVO;
 
 public class TimeZoneLookupService extends DatabaseHelper {
 	
-	String storageDir = Environment.getExternalStorageDirectory().getAbsolutePath()+"/com.arpitonline.worldclock/";
+	//String storageDir = Environment.getExternalStorageDirectory().getAbsolutePath()+"/com.arpitonline.worldclock/";
 	
+	public static final String TAG = "TimeZoneLookupService";
 	
 	public static final String CITY_NAME = SearchManager.SUGGEST_COLUMN_TEXT_1;
 	public static final String COUNTRY_NAME = SearchManager.SUGGEST_COLUMN_TEXT_2;
@@ -47,7 +48,21 @@ public class TimeZoneLookupService extends DatabaseHelper {
 	
 	private static TimeZoneLookupService instance;
 	public static TimeZoneLookupService getInstance(Context c){
+		
+		
+		
 		if(instance == null){
+			TimelyPiece app = null;
+			if (c instanceof TimelyPiece){
+				app = (TimelyPiece)c;
+			}
+			if(c instanceof Activity){
+				app = (TimelyPiece)(((Activity)c).getApplication());
+ 			}
+			if(app != null && app.isFirstRunOfNewVersion()){
+				Log.d(TAG, "Force copy: setting value");
+				DatabaseHelper.FORCE_DATABASE_COPY = true;
+			}
 			instance = new TimeZoneLookupService(c);
 		}
 		return instance;
