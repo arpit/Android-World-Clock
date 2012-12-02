@@ -7,6 +7,7 @@ import org.joda.time.LocalTime;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -74,10 +75,10 @@ public class MyLocationsDataAdapter extends CountriesAdapter implements View.OnC
 		else{
 			bg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.day_bg);
 			celestialImg = (BitmapDrawable)this.getContext().getResources().getDrawable(R.drawable.sun);
-		}
-		
-		ImageView img = (ImageView)v.findViewById(R.id.backgroundImage);
-		img.setImageDrawable(bg);
+		}	
+		RelativeLayout item = (RelativeLayout)v.findViewById(R.id.item_layout);
+		bg.setTileModeX(TileMode.REPEAT);
+		item.setBackgroundDrawable(bg);
 		
 		final ImageView celestial = (ImageView)v.findViewById(R.id.celestial);
 		celestial.setImageDrawable(celestialImg);
