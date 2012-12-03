@@ -4,7 +4,7 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
-       	android:background="@drawable/black_gradient"
+       	
         >
         <ImageView
                 android:id="@+id/tv"

@@ -1,7 +1,6 @@
 package com.arpitonline.worldclock;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -26,8 +25,6 @@ public class MyLocationsActivity extends SherlockFragmentActivity {
 	
 	public static final String TAG = "MyLocationsActivity";
 	
-	private Dialog introDialog;
-	
 	@Override
 	public void onAttachedToWindow() {
 		super.onAttachedToWindow();
@@ -40,8 +37,7 @@ public class MyLocationsActivity extends SherlockFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.my_locations_activity);
-		this.getActionBar().setNavigationMode(
-				ActionBar.NAVIGATION_MODE_STANDARD);	
+		this.getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);	
 	}
 
 	@Override

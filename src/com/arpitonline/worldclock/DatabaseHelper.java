@@ -21,7 +21,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  *
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-	
+	@SuppressWarnings("unused")
 	private static String TAG = "DatabaseHelper";
 	public static boolean FORCE_DATABASE_COPY = false;
 	
